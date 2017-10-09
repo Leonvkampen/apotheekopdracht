@@ -146,7 +146,7 @@ DROP TABLE IF EXISTS `Apotheek`.`Medicijn` ;
 CREATE TABLE IF NOT EXISTS `Apotheek`.`Medicijn` (
   `idMedicijn` INT NOT NULL COMMENT '',
   `naam` VARCHAR(45) NOT NULL COMMENT '',
-  `beschrijving` VARCHAR(45) NULL COMMENT '',
+  `beschrijving` VARCHAR(999) NULL COMMENT '',
   `maximale voorraad` INT NOT NULL DEFAULT 140 COMMENT '',
   `voorraad` INT NOT NULL COMMENT '',
   PRIMARY KEY (`idMedicijn`)  COMMENT '')
