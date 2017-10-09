@@ -9,7 +9,7 @@
     if ( empty($_POST["Verzekeringsnummer"]) || empty($_POST["email"]) || empty($_POST["Geboorteplaats"]) )
 	{ 
 		echo "U heeft een veld niet ingevuld. Probeer het nogmaals";
-		header("refresh:20000000; url=index.php?content=login.php");
+		header("refresh:2; url=index.php?content=login.php");
 	}
 	else
 	{
@@ -30,7 +30,10 @@
 			$_SESSION["Email"] = $record_user["Email"];
 			$_SESSION["Verzekeringsnummer"] = $record_user["Verzekeringsnummer"];
 			$_SESSION["geboorteplaats"] = $record_user["geboorteplaats"];
-
+            $_SESSION["Naam"] = $record_user["Naam"];
+            $_SESSION["patientdata"] = $record_user["patientdata"];
+            $_SESSION["adres"] = $record_user["adres"];
+            $_SESSION["postcode"] = $record_user["postcode"];
              header("location: klanthome.php");
 						 break;
             

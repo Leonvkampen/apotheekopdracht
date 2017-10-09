@@ -1,3 +1,15 @@
+<?php session_start(); 
+    
+    include 'db_connect.php';
+
+    $select_user = "SELECT * FROM patient WHERE email = '{$_SESSION["Email"]}'";
+
+    $result = mysqli_query($connection, $select_user);
+
+    $row = mysqli_fetch_assoc($result);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,45 +22,36 @@
     <h1 style="text-align: center;">Accountgegevens aanpassen</h1>
 <div>
 <h3 style="text-align: center;">Voer alles in. Als u iets niet wilt wijzigen moet u uw huidige gegevens invoeren.</h3>
-<form class="table" method="post" style="margin-left: 22%;" action="accountgegevens_wijzigen_ingelogd_klant.php">
+<form class="table" method="post" style="margin-left: 22%;" action="klantgevensaanpassen_wijzigen.php">
     <table style="margin-left: 22%;">
-        <tr>
-            <td>Voornaam:			
-						<input style="width: 100%" type="text" class="form-control" name="voornaam" id="voornaam"  placeholder="Vul uw voornaam in"/>
-			</td>
-        </tr>
             <tr>
-                <td>Tussenvoegsel:			
-                        <input style="width: 100%" type="text" class="form-control" name="tussenvoegsel" id="tussenvoegsel"  placeholder="Vul uw tussenvoegsel in"/>
+                <td>Geboorteplaats:			
+                        <input style="width: 100%" type="text" class="form-control" name="geboorteplaats" id="geboorteplaats"  placeholder="Vul uw geboorteplaats in" value="<?= $row["geboorteplaats"] ?>"/>
                 </td>
             </tr>
-        <tr>
-            <td>Achternaam:			
-						<input style="width: 100%" type="text" class="form-control" name="achternaam" id="achternaam"  placeholder="Vul uw achternaam in"/>
-			</td>
-        </tr>
+        
           <tr>
-            <td>Woonplaats:				
-						<input style="width: 100%" type="text" class="form-control" name="woonplaats" id="woonplaats"  placeholder="Vul uw woonplaats in"/>
+            <td>Naam:				
+						<input style="width: 100%" type="text" class="form-control" name="Naam" id="Naam"  placeholder="Vul uw Naam in" value="<?= $row["Naam"] ?>"/>
 			</td></tr>
         </tr>
           <tr>
-            <td>Postcode:				
-						<input style="width: 100%" type="text" class="form-control" name="postcode" id="postcode"  placeholder="Vul uw postcode in"/>
+            <td>Patientdata:				
+						<input style="width: 100%" type="text" class="form-control" name="patientdata" id="patientdata"  placeholder="Vul uw patientdata in" value="<?= $row["patientdata"] ?>"/>
 			</td></tr>
         </tr>
           <tr>
             <td>Adres: <div>				
-						<input style="width: 100%" type="text" class="form-control" name="adres" id="adres"  placeholder="Vul uw adres in" />
+						<input style="width: 100%" type="text" class="form-control" name="adres" id="adres"  placeholder="Vul uw adres in" value="<?= $row["adres"] ?>" />
 			</td></tr>
-        </tr>
-          <tr>
-            <td>Telefoonnummer: 			
-						<input style="width: 100%" type="text" class="form-control" name="telefoonnummer" id="telefoonnummer"              placeholder="Vul uw telefoonnummer in"/>
+    <tr>
+            <td>Postcode: 			
+						<input style="width: 100%" type="text" class="form-control" name="postcode" id="postcode" placeholder="Vul uw postcode in" value="<?= $row["postcode"] ?>"/>
 			</td></tr>
         
         <tr>
             <td>
+                <br><br>
             
                         <input style="width: 101%" type="submit" id="button2" class="button_account" action="accountgegevens_wijzigen_ingelogd_klant.php" method="post"/>
            </td>
@@ -56,7 +59,6 @@
     
         <tr>
             <td>
-            <br><br>
  <button onclick="location.href='./klantgegevens.php'" type="button" style="width: 101%;"  class="button" > Terug </button>
            </td>
         </tr>
