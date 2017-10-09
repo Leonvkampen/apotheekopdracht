@@ -11,7 +11,7 @@
 <div class="form" style="margin-left:43.5%; text-align: center" >
     <div>
 
-    <form id="login" class="table" method="post" action="loginpatient_parse"  ;>
+    <form id="login" class="table" method="post" action="loginpatient_parse";>
     <table>
         <tr>
       <br>
