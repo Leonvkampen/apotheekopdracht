@@ -1,1 +1,0 @@
-<button onclick="location.href='./index.php'" type="button" style="width: 100%;"  class="button" > Home </button>
