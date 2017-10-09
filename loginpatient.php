@@ -11,20 +11,20 @@
 <div class="form" style="margin-left:43.5%; text-align: center" >
     <div>
 
-    <form id="login" class="table" method="post" action="loginpatient_parse";>
+    <form id="login" class="table" method="post" action="loginpatient_parse.php";>
     <table>
         <tr>
       <br>
             <td>Verzekeringsnummer<br><hr></td></tr>
-              <tr><td><input type="text" name="email"></td></tr>
+              <tr><td><input type="text" name="Verzekeringsnummer"></td></tr>
 
         <tr>
             <td>E-mail<br><hr></td></tr>
-              <tr><td><input type="email" name="wachtwoord"></td>
+              <tr><td><input type="email" name="email"></td>
         </tr>
         <tr>
-            <td>Geboortedatum<br><hr></td></tr>
-              <tr><td><input type="date" name="wachtwoord"></td>
+            <td>Geboorteplaats<br><hr></td></tr>
+              <tr><td><input type="text" name="Geboorteplaats"></td>
         </tr>
         <tr>
             <td>
