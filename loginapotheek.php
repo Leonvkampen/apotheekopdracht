@@ -7,34 +7,33 @@
 
 <body>
  
-    <h1 style="text-align: center;">Inloggen patient</h1>
+    <h1 style="text-align: center;">Inloggen apotheek</h1>
 <div class="form" style="margin-left:43.5%; text-align: center" >
     <div>
 
-    <form id="login" class="table" method="post" action="loginpatient_parse.php";>
+    <form id="login" class="table" method="post" action="loginapotheek_parse.php"  ;>
     <table>
         <tr>
       <br>
-            <td>Verzekeringsnummer<br><hr></td></tr>
-              <tr><td><input type="text" name="Verzekeringsnummer"></td></tr>
+            <td>Email<br><hr></td></tr>
+              <tr><td><input type="email" name="email"></td></tr>
 
         <tr>
-            <td>E-mail<br><hr></td></tr>
-              <tr><td><input type="email" name="email"></td>
-        </tr>
-        <tr>
-            <td>Geboorteplaats<br><hr></td></tr>
-              <tr><td><input type="text" name="Geboorteplaats"></td>
+            <td>Wachtwoord<br><hr></td></tr>
+              <tr><td><input type="password" name="wachtwoord"></td>
         </tr>
         <tr>
             <td>
             <div style="margin-top:30px;"><input type="submit" name="inloggen" value="Inloggen"></div></td>
+            
+            
         </tr>
     </table>
 </form>
+        
 </div>
   </div>
-     <div style="text-align: center;">
+    <div style="text-align: center;">
         <button onclick="location.href='./index.php'" type="button" style="width: 250px;"  class="button" > Terug naar home </button>
         </div>
 </body>

@@ -7,11 +7,11 @@
 
 <body>
  
-    <h1 style="text-align: center;">Inloggen</h1>
+    <h1 style="text-align: center;">Inloggen koerier</h1>
 <div class="form" style="margin-left:43.5%; text-align: center" >
     <div>
 
-    <form id="login" class="table" method="post" action="login_parse.php"  ;>
+    <form id="login" class="table" method="post" action="loginkoerier_parse.php"  ;>
     <table>
         <tr>
       <br>
@@ -25,13 +25,20 @@
         <tr>
             <td>
             <div style="margin-top:30px;"><input type="submit" name="inloggen" value="Inloggen"></div></td>
+            
+            
         </tr>
     </table>
 </form>
+        
 </div>
   </div>
+    <div style="text-align: center;">
+        <button onclick="location.href='./index.php'" type="button" style="width: 250px;"  class="button" > Terug naar home </button>
+        </div>
 </body>
 <br><br>
 <footer>
     <?php include 'footer.php'; ?>
 </footer>
+w
