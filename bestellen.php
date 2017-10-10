@@ -40,13 +40,13 @@
         
             ?>
             <p> Medicijn 1 </p>
-            <select>
+            <select name="med1">
                 <?php echo $option; ?>
            
               </select>
             
-                <p> Medicijn 1 </p>
-            <select>
+            <p> Medicijn 1 </p>
+            <select name="med2">
                 <?php echo $option; ?>
            
               </select>

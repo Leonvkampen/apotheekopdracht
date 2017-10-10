@@ -4,13 +4,10 @@ session_start();
 
 include("db_connect.php");
 
-	if(!isset($_POST["medicijnpicker"]) || trim($_POST["medicijnpicker"]) == '' OR
-       !isset($_POST["medicijnpicker"]) || trim($_POST["medicijnpicker"]) == '' OR
-	   !isset($_POST["medicijnpicker"]) || trim($_POST["medicijnpicker"]) == '' OR
-	   !isset($_POST["medicijnpicker"]) || trim($_POST["medicijnpicker"]) == '' OR
-	   !isset($_POST["medicijnpicker"]) || trim($_POST["medicijnpicker"]) == '' )
+	if ( isset($_POST["med1"]) || trim($_POST["med1"]) == '' OR
+        !isset($_POST["med2"]) || trim($_POST["med2"]) == '')
 
-
+	var_dump($_POST);
 	{
 	   echo "<font color='red' font size='100px'>U heeft een of meer velden niet ingevuld. Probeer het opnieuw.</font>";
 		header("refresh:4; url=bestellen.php");
