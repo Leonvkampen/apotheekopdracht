@@ -19,7 +19,9 @@
     </div>
 	<div style="text-align:center;">
 
-	<button onclick="location.href='./loginpatient.php'" type="button" style="width: 250px;"  class="button" > Inloggen patient </button> 	<button onclick="location.href='./login.php'" type="button" style="width: 250px;"  class="button" > Inloggen </button>
+	<button onclick="location.href='./loginpatient.php'" type="button" style="width: 250px;"  class="button" > Inloggen patient </button> 	<button onclick="location.href='./loginhuisarts.php'" type="button" style="width: 250px;"  class="button" > Inloggen huisarts </button>
+        <br><br>        
+	<button onclick="location.href='./loginkoerier.php'" type="button" style="width: 250px;"  class="button" > Inloggen koerier </button> 	<button onclick="location.href='./loginapotheek.php'" type="button" style="width: 250px;"  class="button" > Inloggen apotheek </button>    
 	</div>
 </body>
 <br><br><br>
