@@ -37,6 +37,7 @@
 
 	$result = mysqli_query($connection, $query);
 
+	header("refresh:2; url=huisartshome.php");
 
 ?>
 <html>
