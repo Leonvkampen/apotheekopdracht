@@ -47,6 +47,7 @@ html
 <tr>
 				<th>Verzekeringsnummer</th>
 				<th>Naam</th>
+                <th></th>
 			</tr>
 		<?php
 	       while( $row = mysqli_fetch_assoc($result) )
@@ -54,6 +55,11 @@ html
 				echo "<tr>
 						<td>".$row["Verzekeringsnummer"]."</td>
 						<td>".$row["Naam"]."</td>
+                        <td>
+							<a href='bestellen_stap1_orderaanmaken.php?verzekeringsnummer=".$row["Verzekeringsnummer"]."'/>
+				            <img src='icons/drop.png' alt='Receptaanmaken'>
+							</a>
+                        </td>
                         
 					  </tr>";
 			}
