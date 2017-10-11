@@ -37,12 +37,8 @@
 ?>
     
        <h1 style="text-align: center;">Bestelling plaatsen</h1>
-    <!DOCTYPE html>
-<style>
-html
+  
 
-
-</style>
 <table width="300" border="1" cellpadding="1" cellspacing="1" align="center">
 <tr>
 				<th>Verzekeringsnummer</th>
@@ -56,7 +52,7 @@ html
 						<td>".$row["Verzekeringsnummer"]."</td>
 						<td>".$row["Naam"]."</td>
                         <td>
-							<a href='bestellen_stap1_orderaanmaken.php?verzekeringsnummer=".$row["Verzekeringsnummer"]."'/>
+							<a href='bestellen_stap2_orderaanmaken.php?verzekeringsnummer=".$row["Verzekeringsnummer"]."'/>
 				            <img src='icons/drop.png' alt='Receptaanmaken'>
 							</a>
                         </td>
