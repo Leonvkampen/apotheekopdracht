@@ -15,7 +15,7 @@ include("db_connect.php");
     }
 
 	
-    //voor als er een veld leeg is
+
 
 	$query = "INSERT INTO `medicijn` (`medicijn`)
 
