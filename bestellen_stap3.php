@@ -8,6 +8,9 @@
 
 	mysqli_close($connection);
 
+    $verzekeringsidd = $_SESSION["verzekeringsnummer"];
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,6 +34,7 @@
 		
 	<?php	
         
+        
             $option = "";
             while( $row = mysqli_fetch_assoc($result) )
 			{
@@ -39,10 +43,7 @@
 			} //exit;
 			
             ?>
-			<p> insert new id </p>
-			<input type="orderid" name="orderid">
-			<p> hoeveel </p>
-			<input type="aantal" name="aantal">
+        
             <p> Medicijn 1 </p>
             <select name="med1" type="med1">
                 <?php echo $option; ?>

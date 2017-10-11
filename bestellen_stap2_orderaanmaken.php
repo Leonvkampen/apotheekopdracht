@@ -3,7 +3,11 @@ session_start();
 
 include("db_connect.php");
  
-var_dump($_GET); 
+var_dump($_SESSION);
+$verzekeringsnummer = $_GET['verzekeringsnummer'];
+		$_SESSION["verzekeringsnummer"] = $verzekeringsnummer;
+
+//var_dump ($_SESSION); exit;
 
 ?>
 
@@ -30,16 +34,26 @@ var_dump($_GET);
 												 '".$_GET['verzekeringsnummer']."',
 								                 '1')";
 
-$result = mysqli_query($connection, $query);
+    /* $result = mysqli_query($connection, $query);
 
-    header("location: bestellen_stap3.php");
-						 break;
+    $queryorderid = "SELECT `idorder` FROM `order` 
+                                      WHERE patient = '".$_GET['verzekeringsnummer']."'";
+
+    $resultorderid = mysqli_query($connection, $queryorderid);
+
+    $recordsorderid = mysqli_fetch_all($resultorderid, MYSQLI_ASSOC); 
+    */
+   header("location: bestellen_stap3.php");
+					 break;
 			
 
 	
 
     
 ?>
-<?php var_dump($query);  ?>
+<?php var_dump($recordsorderid);  
+
+
+?>
 <br><br><br>
 </html>
