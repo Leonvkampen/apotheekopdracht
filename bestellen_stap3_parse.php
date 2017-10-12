@@ -46,7 +46,7 @@ var_dump ($recordsorderid);
     $recordsmedicijnid2 = mysqli_fetch_all($resultmedicijnid2, MYSQLI_ASSOC); 
 
 
-    /* $querymedicijnid3 = "SELECT idMedicijn FROM `medicijn` 
+    $querymedicijnid3 = "SELECT idMedicijn FROM `medicijn` 
                                       WHERE naam = '".$_POST["med3"]."'";
 
     $resultmedicijnid3 = mysqli_query($connection, $querymedicijnid3);
@@ -54,68 +54,63 @@ var_dump ($recordsorderid);
     $recordsmedicijnid3 = mysqli_fetch_all($resultmedicijnid3, MYSQLI_ASSOC); 
 
 
-    $querymedicijnid = "SELECT idMedicijn FROM `medicijn` 
-                                      WHERE naam = '".$_POST["med1"]."'";
+    $querymedicijnid4 = "SELECT idMedicijn FROM `medicijn` 
+                                      WHERE naam = '".$_POST["med4"]."'";
 
-    $resultmedicijnid = mysqli_query($connection, $querymedicijnid);
+    $resultmedicijnid4 = mysqli_query($connection, $querymedicijnid4);
 
-    $recordsmedicijnid = mysqli_fetch_all($resultmedicijnid, MYSQLI_ASSOC); 
-
-
-    $querymedicijnid = "SELECT idMedicijn FROM `medicijn` 
-                                      WHERE naam = '".$_POST["med1"]."'";
-
-    $resultmedicijnid = mysqli_query($connection, $querymedicijnid);
-
-    $recordsmedicijnid = mysqli_fetch_all($resultmedicijnid, MYSQLI_ASSOC); 
+    $recordsmedicijnid4 = mysqli_fetch_all($resultmedicijnid4, MYSQLI_ASSOC); 
 
 
-    $querymedicijnid = "SELECT idMedicijn FROM `medicijn` 
-                                      WHERE naam = '".$_POST["med1"]."'";
+    $querymedicijnid5 = "SELECT idMedicijn FROM `medicijn` 
+                                      WHERE naam = '".$_POST["med5"]."'";
 
-    $resultmedicijnid = mysqli_query($connection, $querymedicijnid);
+    $resultmedicijnid5 = mysqli_query($connection, $querymedicijnid5);
 
-    $recordsmedicijnid = mysqli_fetch_all($resultmedicijnid, MYSQLI_ASSOC); 
-
-
-    $querymedicijnid = "SELECT idMedicijn FROM `medicijn` 
-                                      WHERE naam = '".$_POST["med1"]."'";
-
-    $resultmedicijnid = mysqli_query($connection, $querymedicijnid);
-
-    $recordsmedicijnid = mysqli_fetch_all($resultmedicijnid, MYSQLI_ASSOC); 
+    $recordsmedicijnid5 = mysqli_fetch_all($resultmedicijnid5, MYSQLI_ASSOC); 
 
 
-    $querymedicijnid = "SELECT idMedicijn FROM `medicijn` 
-                                      WHERE naam = '".$_POST["med1"]."'";
+    $querymedicijnid6 = "SELECT idMedicijn FROM `medicijn` 
+                                      WHERE naam = '".$_POST["med6"]."'";
 
-    $resultmedicijnid = mysqli_query($connection, $querymedicijnid);
+    $resultmedicijnid6 = mysqli_query($connection, $querymedicijnid6);
 
-    $recordsmedicijnid = mysqli_fetch_all($resultmedicijnid, MYSQLI_ASSOC); 
-
-
-    $querymedicijnid = "SELECT idMedicijn FROM `medicijn` 
-                                      WHERE naam = '".$_POST["med1"]."'";
-
-    $resultmedicijnid = mysqli_query($connection, $querymedicijnid);
-
-    $recordsmedicijnid = mysqli_fetch_all($resultmedicijnid, MYSQLI_ASSOC); 
+    $recordsmedicijnid6 = mysqli_fetch_all($resultmedicijnid6, MYSQLI_ASSOC); 
 
 
-    $querymedicijnid = "SELECT idMedicijn FROM `medicijn` 
-                                      WHERE naam = '".$_POST["med1"]."'";
+    $querymedicijnid7 = "SELECT idMedicijn FROM `medicijn` 
+                                      WHERE naam = '".$_POST["med7"]."'";
 
-    $resultmedicijnid = mysqli_query($connection, $querymedicijnid);
+    $resultmedicijnid7 = mysqli_query($connection, $querymedicijnid7);
 
-    $recordsmedicijnid = mysqli_fetch_all($resultmedicijnid, MYSQLI_ASSOC); 
+    $recordsmedicijnid7 = mysqli_fetch_all($resultmedicijnid7, MYSQLI_ASSOC); 
 
 
-    $querymedicijnid = "SELECT idMedicijn FROM `medicijn` 
-                                      WHERE naam = '".$_POST["med1"]."'";
+    $querymedicijnid8 = "SELECT idMedicijn FROM `medicijn` 
+                                      WHERE naam = '".$_POST["med8"]."'";
 
-    $resultmedicijnid = mysqli_query($connection, $querymedicijnid);
+    $resultmedicijnid8 = mysqli_query($connection, $querymedicijnid8);
 
-    $recordsmedicijnid = mysqli_fetch_all($resultmedicijnid, MYSQLI_ASSOC); */
+    $recordsmedicijnid8 = mysqli_fetch_all($resultmedicijnid8, MYSQLI_ASSOC); 
+
+
+    $querymedicijnid9 = "SELECT idMedicijn FROM `medicijn` 
+                                      WHERE naam = '".$_POST["med9"]."'";
+
+    $resultmedicijnid9 = mysqli_query($connection, $querymedicijnid9);
+
+    $recordsmedicijnid9 = mysqli_fetch_all($resultmedicijnid9, MYSQLI_ASSOC); 
+
+
+    $querymedicijnid10 = "SELECT idMedicijn FROM `medicijn` 
+                                      WHERE naam = '".$_POST["med10"]."'";
+
+    $resultmedicijnid10 = mysqli_query($connection, $querymedicijnid10);
+
+    $recordsmedicijnid10 = mysqli_fetch_all($resultmedicijnid10, MYSQLI_ASSOC); 
+
+
+  
     
 
 foreach($recordsorderid as $recordsorderid){
@@ -129,13 +124,40 @@ foreach($recordsmedicijnid1 as $recordsmedicijnid1){
 foreach($recordsmedicijnid2 as $recordsmedicijnid2){
        
 }
+
+foreach($recordsmedicijnid3 as $recordsmedicijnid3){
+       
+}
+
+foreach($recordsmedicijnid4 as $recordsmedicijnid4){
+       
+}
+
+foreach($recordsmedicijnid5 as $recordsmedicijnid5){
+       
+}
+
+foreach($recordsmedicijnid6 as $recordsmedicijnid6){
+       
+}
+foreach($recordsmedicijnid7 as $recordsmedicijnid7){
+       
+}
+
+foreach($recordsmedicijnid8 as $recordsmedicijnid8){
+       
+}
+
+foreach($recordsmedicijnid9 as $recordsmedicijnid9){
+       
+}
+
+foreach($recordsmedicijnid10 as $recordsmedicijnid10){
+       
+}
 	 
-	/* $leverdatum = "INSERT INTO `order` (`leverdatum`,
-										`levertijd`)	
 	
-					VALUES			('".$_POST['levertijd']."',
-									 '".$_POST["leversdatum"]."')";
-					*/
+					
 				
 	$query1 = "INSERT INTO `orderregel`(`medicijnid`,
 										`orderid`,
@@ -148,7 +170,7 @@ foreach($recordsmedicijnid2 as $recordsmedicijnid2){
 								   
 	$result1 = mysqli_query($connection, $query1);
 
-    	$query2 = "INSERT INTO `orderregel`(`medicijnid`,
+    $query2 = "INSERT INTO `orderregel`(`medicijnid`,
 										`orderid`,
 										`aantal`)
 
@@ -158,6 +180,102 @@ foreach($recordsmedicijnid2 as $recordsmedicijnid2){
 
 								   
 	$result2 = mysqli_query($connection, $query2);
+	
+	$query3 = "INSERT INTO `orderregel`(`medicijnid`,
+										`orderid`,
+										`aantal`)
+
+			  VALUES 			  ('".$recordsmedicijnid3["idMedicijn"]."',
+                                   '".$recordsorderid['orderid']."',
+								   '1')";
+
+								   
+	$result3 = mysqli_query($connection, $query3);
+	
+	$query4 = "INSERT INTO `orderregel`(`medicijnid`,
+										`orderid`,
+										`aantal`)
+
+			  VALUES 			  ('".$recordsmedicijnid4["idMedicijn"]."',
+                                   '".$recordsorderid['orderid']."',
+								   '1')";
+
+								   
+	$result4 = mysqli_query($connection, $query4);
+	
+	$query5 = "INSERT INTO `orderregel`(`medicijnid`,
+										`orderid`,
+										`aantal`)
+
+			  VALUES 			  ('".$recordsmedicijnid5["idMedicijn"]."',
+                                   '".$recordsorderid['orderid']."',
+								   '1')";
+
+								   
+	$result5 = mysqli_query($connection, $query5);
+	
+	$query6 = "INSERT INTO `orderregel`(`medicijnid`,
+										`orderid`,
+										`aantal`)
+
+			  VALUES 			  ('".$recordsmedicijnid6["idMedicijn"]."',
+                                   '".$recordsorderid['orderid']."',
+								   '1')";
+
+								   
+	$result6 = mysqli_query($connection, $query6);
+	
+	$query7 = "INSERT INTO `orderregel`(`medicijnid`,
+										`orderid`,
+										`aantal`)
+
+			  VALUES 			  ('".$recordsmedicijnid7["idMedicijn"]."',
+                                   '".$recordsorderid['orderid']."',
+								   '1')";
+
+								   
+	$result7 = mysqli_query($connection, $query7);
+	
+	$query8 = "INSERT INTO `orderregel`(`medicijnid`,
+										`orderid`,
+										`aantal`)
+
+			  VALUES 			  ('".$recordsmedicijnid8["idMedicijn"]."',
+                                   '".$recordsorderid['orderid']."',
+								   '1')";
+
+								   
+	$result8 = mysqli_query($connection, $query8);
+	
+	$query9 = "INSERT INTO `orderregel`(`medicijnid`,
+										`orderid`,
+										`aantal`)
+
+			  VALUES 			  ('".$recordsmedicijnid9["idMedicijn"]."',
+                                   '".$recordsorderid['orderid']."',
+								   '1')";
+
+								   
+	$result9 = mysqli_query($connection, $query9);
+	
+	$query10 = "INSERT INTO `orderregel`(`medicijnid`,
+										`orderid`,
+										`aantal`)
+
+			  VALUES 			  ('".$recordsmedicijnid10["idMedicijn"]."',
+                                   '".$recordsorderid['orderid']."',
+								   '1')";
+
+								   
+	$result10 = mysqli_query($connection, $query10);
+	
+	$leverdatum = "UPDATE order
+                    SET                 leverdatum = '".$_POST['leverdatum']."',
+                                        levertijd = '".$_POST['levertijd']."'
+                    WHERE                idOrder = '".$recordsorderid['orderid']."'"; 
+
+
+    $resultlevering = mysqli_query($connection, $leverdatum);
 
 
 var_dump($query2);	

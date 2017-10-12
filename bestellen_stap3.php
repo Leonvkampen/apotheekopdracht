@@ -107,14 +107,15 @@
            
               </select>
           
-            <br><br><br>
-			<p> Leverdatum </p>
-			
-		<input type="text" name="leverdatum" id="leverdatum" alt="date" class="IP_calendar" title="d/m/Y">
-		
-		    <p> levertijd </p>
-			
-		<input maxlength="4" type="text" name="levertijd" id="levertijd" alt="time" class="Timepicker">
+            
+			<br><br><br>
+            <p> Leverdatum </p>
+
+        <input type="date" class="form-control" name="leverdatum" id="leverdatum" style="width:15%;"/>
+
+            <p> levertijd </p>
+
+        <input type="time" class="form-control" name="levertijd" id="levertijd" style="width:15%;"/>
 
 		
 		<br><br><br>
