@@ -277,7 +277,7 @@ foreach($recordsmedicijnid10 as $recordsmedicijnid10){
 
     $resultlevering = mysqli_query($connection, $leverdatum);
 
-
+    var_dump($leverdatum);
 var_dump($query2);	
 ?>
 
