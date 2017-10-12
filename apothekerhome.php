@@ -19,7 +19,7 @@
 	 	<button onclick="location.href='./login.php'" type="button" style="width: 250px;"  class="button" > Voorraad saanpassen </button>
         <br>
         <br>
-        <button onclick="location.href='./login.php'" type="button" style="width: 250px;"  class="button" > Bestelling overzien </button>
+        <button onclick="location.href='./leveringenkoerier.php'" type="button" style="width: 250px;"  class="button" > Bestelling overzien </button>
 	</div>
 </body>
 <br><br><br>
