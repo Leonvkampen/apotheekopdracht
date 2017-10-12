@@ -52,70 +52,70 @@
                 <?php echo $option; ?>
            
               </select>
-        <input type="text" name="aantal1" id="aatal1" placeholder="Vul hier aantal in" value= "1" style="width:15%;"/>
+        <input type="text" name="aantal1" id="aantal1" placeholder="Vul hier aantal in" value= "1" style="width:15%;"/>
             
             <p> Medicijn 2 & aantal</p>
             <select name="med2" type="med2">
                 <?php echo $option; ?>
            
               </select>
-        <input type="text" name="aantal2" id="aatal2" placeholder="Vul hier aantal in" value= "1" style="width:15%;"/>
+        <input type="text" name="aantal2" id="aantal2" placeholder="Vul hier aantal in" value= "1" style="width:15%;"/>
             
 			<p> Medicijn 3 & aantal</p>
             <select name="med3" type="med3">
                 <?php echo $option; ?>
            
               </select>
-        <input type="text" name="aantal3" id="aatal3" placeholder="Vul hier aantal in"  value= "1"style="width:15%;"/>
+        <input type="text" name="aantal3" id="aantal3" placeholder="Vul hier aantal in"  value= "1"style="width:15%;"/>
 			  
 			<p> Medicijn 4 & aantal</p>
             <select name="med4" type="med4">
                 <?php echo $option; ?>
            
               </select>
-        <input type="text" name="aantal4" id="aatal4" placeholder="Vul hier aantal in"  value= "1"style="width:15%;"/>
+        <input type="text" name="aantal4" id="aantal4" placeholder="Vul hier aantal in"  value= "1"style="width:15%;"/>
 			  
 			<p> Medicijn 5 & aantal</p>
             <select name="med5" type="med5">
                 <?php echo $option; ?>
            
               </select>
-        <input type="text" name="aantal5" id="aatal5" placeholder="Vul hier aantal in"  value= "1" style="width:15%;"/>
+        <input type="text" name="aantal5" id="aantal5" placeholder="Vul hier aantal in"  value= "1" style="width:15%;"/>
 			  
 			<p> Medicijn 6 & aantal</p>
             <select name="med6" type="med6">
                 <?php echo $option; ?>
            
               </select>
-        <input type="text" name="aantal6" id="aatal6" placeholder="Vul hier aantal in"  value= "1" style="width:15%;"/>
+        <input type="text" name="aantal6" id="aantal6" placeholder="Vul hier aantal in"  value= "1" style="width:15%;"/>
 			  
 			<p> Medicijn 7 & aantal</p>
             <select name="med7" type="med7">
                 <?php echo $option; ?>
            
               </select>
-        <input type="text" name="aantal7" id="aatal7" placeholder="Vul hier aantal in"  value= "1" style="width:15%;"/>
+        <input type="text" name="aantal7" id="aantal7" placeholder="Vul hier aantal in"  value= "1" style="width:15%;"/>
 			  
 			<p> Medicijn 8 & aantal</p>
             <select name="med8" type="med8">
                 <?php echo $option; ?>
            
               </select>
-        <input type="text" name="aantal8" id="aatal8" placeholder="Vul hier aantal in"  value= "1" style="width:15%;"/>
+        <input type="text" name="aantal8" id="aantal8" placeholder="Vul hier aantal in"  value= "1" style="width:15%;"/>
 			  
 			<p> Medicijn 9 & aantal</p>
             <select name="med9" type="med9">
                 <?php echo $option; ?>
            
               </select>
-        <input type="text" name="aantal9" id="aatal9" placeholder="Vul hier aantal in" value= "1" style="width:15%;"/>
+        <input type="text" name="aantal9" id="aantal9" placeholder="Vul hier aantal in" value= "1" style="width:15%;"/>
 			  
 			<p> Medicijn 10 & aantal</p>
             <select name="med10" type="med10">
                 <?php echo $option; ?>
            
               </select>
-        <input type="text" name="aantal10" id="aatal10" placeholder="Vul hier aantal in" value= "1" style="width:15%;"/>
+        <input type="text" name="aantal10" id="aantal10" placeholder="Vul hier aantal in" value= "1" style="width:15%;"/>
           
             
 			<br><br><br>

@@ -165,7 +165,7 @@ foreach($recordsmedicijnid10 as $recordsmedicijnid10){
 
 			  VALUES 			  ('".$recordsmedicijnid1["idMedicijn"]."',
                                    '".$recordsorderid['orderid']."',
-								   '1')";
+								   '".$_POST["aantal1"]."')";
 
 								   
 	$result1 = mysqli_query($connection, $query1);
@@ -176,7 +176,7 @@ foreach($recordsmedicijnid10 as $recordsmedicijnid10){
 
 			  VALUES 			  ('".$recordsmedicijnid2["idMedicijn"]."',
                                    '".$recordsorderid['orderid']."',
-								   '1')";
+								   '".$_POST["aantal2"]."')";
 
 								   
 	$result2 = mysqli_query($connection, $query2);
@@ -187,7 +187,7 @@ foreach($recordsmedicijnid10 as $recordsmedicijnid10){
 
 			  VALUES 			  ('".$recordsmedicijnid3["idMedicijn"]."',
                                    '".$recordsorderid['orderid']."',
-								   '1')";
+								  '".$_POST["aantal3"]."')";
 
 								   
 	$result3 = mysqli_query($connection, $query3);
@@ -198,7 +198,7 @@ foreach($recordsmedicijnid10 as $recordsmedicijnid10){
 
 			  VALUES 			  ('".$recordsmedicijnid4["idMedicijn"]."',
                                    '".$recordsorderid['orderid']."',
-								   '1')";
+								   '".$_POST["aantal4"]."')";
 
 								   
 	$result4 = mysqli_query($connection, $query4);
@@ -209,7 +209,7 @@ foreach($recordsmedicijnid10 as $recordsmedicijnid10){
 
 			  VALUES 			  ('".$recordsmedicijnid5["idMedicijn"]."',
                                    '".$recordsorderid['orderid']."',
-								   '1')";
+								   '".$_POST["aantal5"]."')";
 
 								   
 	$result5 = mysqli_query($connection, $query5);
@@ -220,7 +220,7 @@ foreach($recordsmedicijnid10 as $recordsmedicijnid10){
 
 			  VALUES 			  ('".$recordsmedicijnid6["idMedicijn"]."',
                                    '".$recordsorderid['orderid']."',
-								   '1')";
+								   '".$_POST["aantal6"]."')";
 
 								   
 	$result6 = mysqli_query($connection, $query6);
@@ -231,7 +231,7 @@ foreach($recordsmedicijnid10 as $recordsmedicijnid10){
 
 			  VALUES 			  ('".$recordsmedicijnid7["idMedicijn"]."',
                                    '".$recordsorderid['orderid']."',
-								   '1')";
+								   '".$_POST["aantal7"]."')";
 
 								   
 	$result7 = mysqli_query($connection, $query7);
@@ -242,7 +242,7 @@ foreach($recordsmedicijnid10 as $recordsmedicijnid10){
 
 			  VALUES 			  ('".$recordsmedicijnid8["idMedicijn"]."',
                                    '".$recordsorderid['orderid']."',
-								   '1')";
+								   '".$_POST["aantal8"]."')";
 
 								   
 	$result8 = mysqli_query($connection, $query8);
@@ -253,7 +253,7 @@ foreach($recordsmedicijnid10 as $recordsmedicijnid10){
 
 			  VALUES 			  ('".$recordsmedicijnid9["idMedicijn"]."',
                                    '".$recordsorderid['orderid']."',
-								   '1')";
+								   '".$_POST["aantal9"]."')";
 
 								   
 	$result9 = mysqli_query($connection, $query9);
@@ -264,7 +264,7 @@ foreach($recordsmedicijnid10 as $recordsmedicijnid10){
 
 			  VALUES 			  ('".$recordsmedicijnid10["idMedicijn"]."',
                                    '".$recordsorderid['orderid']."',
-								   '1')";
+								   '".$_POST["aantal10"]."')";
 
 								   
 	$result10 = mysqli_query($connection, $query10);
