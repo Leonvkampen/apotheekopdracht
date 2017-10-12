@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<?php
+session_start();
+
+    include 'db_connect.php';
+
+?>
+
 <html lang="en">
 <head style="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,7 +23,7 @@
     </div>
 	<div style="text-align:center;">
 
-	 	<button onclick="location.href='./login.php'" type="button" style="width: 250px;"  class="button" > Voorraad saanpassen </button>
+	 	<button onclick="location.href='./voorraadaanpassen.php'" type="button" style="width: 250px;"  class="button" > Voorraad aanpassen </button>
         <br>
         <br>
         <button onclick="location.href='./leveringenkoerier.php'" type="button" style="width: 250px;"  class="button" > Bestelling overzien </button>
