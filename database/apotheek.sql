@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
--- https://www.phpmyadmin.net/
+-- version 4.1.14
+-- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 12, 2017 at 07:07 AM
--- Server version: 5.7.14
--- PHP Version: 5.6.25
+-- Machine: 127.0.0.1
+-- Gegenereerd op: 12 okt 2017 om 09:22
+-- Serverversie: 5.6.17-log
+-- PHP-versie: 5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,28 +14,30 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
--- Database: `apotheek`
+-- Databank: `apotheek`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `apotheek`
+-- Tabelstructuur voor tabel `apotheek`
 --
 
-CREATE TABLE `apotheek` (
+CREATE TABLE IF NOT EXISTS `apotheek` (
   `Apotheekid` int(11) NOT NULL,
   `woonplaats` varchar(45) NOT NULL,
   `Naam` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
-  `wachtwoord` varchar(45) NOT NULL
+  `wachtwoord` varchar(45) NOT NULL,
+  PRIMARY KEY (`Apotheekid`),
+  UNIQUE KEY `username_UNIQUE` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `apotheek`
+-- Gegevens worden geëxporteerd voor tabel `apotheek`
 --
 
 INSERT INTO `apotheek` (`Apotheekid`, `woonplaats`, `Naam`, `email`, `wachtwoord`) VALUES
@@ -44,22 +46,23 @@ INSERT INTO `apotheek` (`Apotheekid`, `woonplaats`, `Naam`, `email`, `wachtwoord
 -- --------------------------------------------------------
 
 --
--- Table structure for table `huisarts`
+-- Tabelstructuur voor tabel `huisarts`
 --
 
-CREATE TABLE `huisarts` (
-  `huisartsid` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `huisarts` (
+  `huisartsid` int(11) NOT NULL AUTO_INCREMENT,
   `naam` varchar(45) NOT NULL,
   `telefoonnummer` varchar(45) NOT NULL,
   `woonplaats` varchar(45) NOT NULL,
   `postcode` varchar(45) NOT NULL,
   `straatnaam` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
-  `wachtwoord` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `wachtwoord` varchar(45) NOT NULL,
+  PRIMARY KEY (`huisartsid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `huisarts`
+-- Gegevens worden geëxporteerd voor tabel `huisarts`
 --
 
 INSERT INTO `huisarts` (`huisartsid`, `naam`, `telefoonnummer`, `woonplaats`, `postcode`, `straatnaam`, `email`, `wachtwoord`) VALUES
@@ -68,17 +71,19 @@ INSERT INTO `huisarts` (`huisartsid`, `naam`, `telefoonnummer`, `woonplaats`, `p
 -- --------------------------------------------------------
 
 --
--- Table structure for table `koerier`
+-- Tabelstructuur voor tabel `koerier`
 --
 
-CREATE TABLE `koerier` (
+CREATE TABLE IF NOT EXISTS `koerier` (
   `idKoerier` int(11) NOT NULL,
   `email` varchar(45) NOT NULL,
-  `wachtwoord` varchar(45) NOT NULL
+  `wachtwoord` varchar(45) NOT NULL,
+  PRIMARY KEY (`idKoerier`),
+  UNIQUE KEY `email_UNIQUE` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `koerier`
+-- Gegevens worden geëxporteerd voor tabel `koerier`
 --
 
 INSERT INTO `koerier` (`idKoerier`, `email`, `wachtwoord`) VALUES
@@ -87,19 +92,20 @@ INSERT INTO `koerier` (`idKoerier`, `email`, `wachtwoord`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `medicijn`
+-- Tabelstructuur voor tabel `medicijn`
 --
 
-CREATE TABLE `medicijn` (
+CREATE TABLE IF NOT EXISTS `medicijn` (
   `idMedicijn` int(11) NOT NULL,
   `naam` varchar(45) NOT NULL,
   `beschrijving` varchar(999) DEFAULT NULL,
   `maximale voorraad` int(11) NOT NULL DEFAULT '140',
-  `voorraad` int(11) NOT NULL
+  `voorraad` int(11) NOT NULL,
+  PRIMARY KEY (`idMedicijn`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `medicijn`
+-- Gegevens worden geëxporteerd voor tabel `medicijn`
 --
 
 INSERT INTO `medicijn` (`idMedicijn`, `naam`, `beschrijving`, `maximale voorraad`, `voorraad`) VALUES
@@ -132,75 +138,77 @@ INSERT INTO `medicijn` (`idMedicijn`, `naam`, `beschrijving`, `maximale voorraad
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order`
+-- Tabelstructuur voor tabel `order`
 --
 
-CREATE TABLE `order` (
-  `idOrder` int(11) NOT NULL,
-  `leverdatum` date NOT NULL,
-  `levertijd` varchar(45) NOT NULL,
+CREATE TABLE IF NOT EXISTS `order` (
+  `idOrder` int(11) NOT NULL AUTO_INCREMENT,
+  `huidigedatum` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `leverdatum` datetime DEFAULT NULL,
+  `levertijd` varchar(45) DEFAULT NULL,
   `huisartsid` int(11) NOT NULL,
   `koerier` int(11) NOT NULL,
   `Patient` int(11) NOT NULL,
-  `Apotheek` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `Apotheek` int(11) NOT NULL,
+  PRIMARY KEY (`idOrder`,`huisartsid`,`koerier`,`Patient`,`Apotheek`),
+  KEY `fk_order_patient_idx` (`Patient`),
+  KEY `fk_order_apotheek_idx` (`Apotheek`),
+  KEY `fk_order_huisarts_idx` (`huisartsid`),
+  KEY `fk_order_koerier_idx` (`koerier`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
--- Dumping data for table `order`
+-- Gegevens worden geëxporteerd voor tabel `order`
 --
 
-INSERT INTO `order` (`idOrder`, `leverdatum`, `levertijd`, `huisartsid`, `koerier`, `Patient`, `Apotheek`) VALUES
-(1, '2017-10-10', '12:45', 1, 1, 111222333, 1);
+INSERT INTO `order` (`idOrder`, `huidigedatum`, `leverdatum`, `levertijd`, `huisartsid`, `koerier`, `Patient`, `Apotheek`) VALUES
+(1, '2017-10-12 09:16:01', '2017-10-10 00:00:00', '12:45', 1, 1, 111222333, 1),
+(3, '2017-10-12 09:16:01', '0000-00-00 00:00:00', '', 111222333, 1, 1, 1),
+(7, '2017-10-12 09:16:16', NULL, NULL, 1, 1, 111222333, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orderregel`
+-- Tabelstructuur voor tabel `orderregel`
 --
 
-CREATE TABLE `orderregel` (
+CREATE TABLE IF NOT EXISTS `orderregel` (
   `medicijnid` int(11) NOT NULL,
   `orderid` int(11) NOT NULL,
   `aantal` int(11) NOT NULL,
-  `med1` varchar(99) NOT NULL,
-  `med2` varchar(99) NOT NULL,
-  `med3` varchar(99) NOT NULL,
-  `med4` varchar(99) NOT NULL,
-  `med5` varchar(99) NOT NULL,
-  `med6` varchar(99) NOT NULL,
-  `med7` varchar(99) NOT NULL,
-  `med8` varchar(99) NOT NULL,
-  `med9` varchar(99) NOT NULL,
-  `med10` varchar(99) NOT NULL
+  PRIMARY KEY (`medicijnid`,`orderid`),
+  KEY `fk_orderregel_order_idx` (`orderid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `orderregel`
+-- Gegevens worden geëxporteerd voor tabel `orderregel`
 --
 
-INSERT INTO `orderregel` (`medicijnid`, `orderid`, `aantal`, `med1`, `med2`, `med3`, `med4`, `med5`, `med6`, `med7`, `med8`, `med9`, `med10`) VALUES
-(1, 1, 3, '', '', '', '', '', '', '', '', '', ''),
-(2, 1, 4, '', '', '', '', '', '', '', '', '', ''),
-(15, 1, 1, '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `orderregel` (`medicijnid`, `orderid`, `aantal`) VALUES
+(1, 1, 3),
+(2, 1, 4),
+(15, 1, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `patient`
+-- Tabelstructuur voor tabel `patient`
 --
 
-CREATE TABLE `patient` (
+CREATE TABLE IF NOT EXISTS `patient` (
   `Verzekeringsnummer` int(11) NOT NULL,
   `geboorteplaats` varchar(45) NOT NULL,
   `Email` varchar(45) NOT NULL,
   `Naam` varchar(45) NOT NULL,
   `patientdata` varchar(45) DEFAULT NULL,
   `adres` varchar(45) NOT NULL,
-  `postcode` varchar(45) NOT NULL
+  `postcode` varchar(45) NOT NULL,
+  PRIMARY KEY (`Verzekeringsnummer`),
+  UNIQUE KEY `Email_UNIQUE` (`Email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `patient`
+-- Gegevens worden geëxporteerd voor tabel `patient`
 --
 
 INSERT INTO `patient` (`Verzekeringsnummer`, `geboorteplaats`, `Email`, `Naam`, `patientdata`, `adres`, `postcode`) VALUES
@@ -210,79 +218,11 @@ INSERT INTO `patient` (`Verzekeringsnummer`, `geboorteplaats`, `Email`, `Naam`, 
 (111222333, 'Utrecht', 'Patient@gmail.com', 'Patient', NULL, 'Utrechlaan123', '4214GP');
 
 --
--- Indexes for dumped tables
+-- Beperkingen voor geëxporteerde tabellen
 --
 
 --
--- Indexes for table `apotheek`
---
-ALTER TABLE `apotheek`
-  ADD PRIMARY KEY (`Apotheekid`),
-  ADD UNIQUE KEY `username_UNIQUE` (`email`);
-
---
--- Indexes for table `huisarts`
---
-ALTER TABLE `huisarts`
-  ADD PRIMARY KEY (`huisartsid`);
-
---
--- Indexes for table `koerier`
---
-ALTER TABLE `koerier`
-  ADD PRIMARY KEY (`idKoerier`),
-  ADD UNIQUE KEY `email_UNIQUE` (`email`);
-
---
--- Indexes for table `medicijn`
---
-ALTER TABLE `medicijn`
-  ADD PRIMARY KEY (`idMedicijn`);
-
---
--- Indexes for table `order`
---
-ALTER TABLE `order`
-  ADD PRIMARY KEY (`idOrder`,`huisartsid`,`koerier`,`Patient`,`Apotheek`),
-  ADD KEY `fk_order_patient_idx` (`Patient`),
-  ADD KEY `fk_order_apotheek_idx` (`Apotheek`),
-  ADD KEY `fk_order_huisarts_idx` (`huisartsid`),
-  ADD KEY `fk_order_koerier_idx` (`koerier`);
-
---
--- Indexes for table `orderregel`
---
-ALTER TABLE `orderregel`
-  ADD PRIMARY KEY (`medicijnid`,`orderid`),
-  ADD KEY `fk_orderregel_order_idx` (`orderid`);
-
---
--- Indexes for table `patient`
---
-ALTER TABLE `patient`
-  ADD PRIMARY KEY (`Verzekeringsnummer`),
-  ADD UNIQUE KEY `Email_UNIQUE` (`Email`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `huisarts`
---
-ALTER TABLE `huisarts`
-  MODIFY `huisartsid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `order`
---
-ALTER TABLE `order`
-  MODIFY `idOrder` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `order`
+-- Beperkingen voor tabel `order`
 --
 ALTER TABLE `order`
   ADD CONSTRAINT `fk_order_apotheek` FOREIGN KEY (`Apotheek`) REFERENCES `apotheek` (`Apotheekid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
@@ -291,7 +231,7 @@ ALTER TABLE `order`
   ADD CONSTRAINT `fk_order_patient` FOREIGN KEY (`Patient`) REFERENCES `patient` (`Verzekeringsnummer`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `orderregel`
+-- Beperkingen voor tabel `orderregel`
 --
 ALTER TABLE `orderregel`
   ADD CONSTRAINT `fk_orderregel_medicijn` FOREIGN KEY (`medicijnid`) REFERENCES `medicijn` (`idMedicijn`) ON DELETE NO ACTION ON UPDATE NO ACTION,

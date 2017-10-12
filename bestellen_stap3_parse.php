@@ -38,7 +38,7 @@ foreach($recordsorderid as $recordsorderid){
 										`levertijd`)	
 	
 					VALUES			('".$_POST['levertijd']."',
-									 '".$_POST["leverdatum"]."')";
+									 '".$_POST["leversdatum"]."')";
 					
 				
 	$query = "INSERT INTO `orderregel`(`orderid`

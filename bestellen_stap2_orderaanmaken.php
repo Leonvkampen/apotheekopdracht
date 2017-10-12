@@ -34,8 +34,8 @@ $verzekeringsnummer = $_GET['verzekeringsnummer'];
 												 '".$_GET['verzekeringsnummer']."',
 								                 '1')";
 
-    /* $result = mysqli_query($connection, $query);
-
+    $result = mysqli_query($connection, $query);
+/*
     $queryorderid = "SELECT `idorder` FROM `order` 
                                       WHERE patient = '".$_GET['verzekeringsnummer']."'";
 
