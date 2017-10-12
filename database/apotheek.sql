@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 11, 2017 at 08:39 AM
+-- Generation Time: Oct 12, 2017 at 07:07 AM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -161,17 +161,27 @@ INSERT INTO `order` (`idOrder`, `leverdatum`, `levertijd`, `huisartsid`, `koerie
 CREATE TABLE `orderregel` (
   `medicijnid` int(11) NOT NULL,
   `orderid` int(11) NOT NULL,
-  `aantal` int(11) NOT NULL
+  `aantal` int(11) NOT NULL,
+  `med1` varchar(99) NOT NULL,
+  `med2` varchar(99) NOT NULL,
+  `med3` varchar(99) NOT NULL,
+  `med4` varchar(99) NOT NULL,
+  `med5` varchar(99) NOT NULL,
+  `med6` varchar(99) NOT NULL,
+  `med7` varchar(99) NOT NULL,
+  `med8` varchar(99) NOT NULL,
+  `med9` varchar(99) NOT NULL,
+  `med10` varchar(99) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `orderregel`
 --
 
-INSERT INTO `orderregel` (`medicijnid`, `orderid`, `aantal`) VALUES
-(1, 1, 3),
-(2, 1, 4),
-(15, 1, 1);
+INSERT INTO `orderregel` (`medicijnid`, `orderid`, `aantal`, `med1`, `med2`, `med3`, `med4`, `med5`, `med6`, `med7`, `med8`, `med9`, `med10`) VALUES
+(1, 1, 3, '', '', '', '', '', '', '', '', '', ''),
+(2, 1, 4, '', '', '', '', '', '', '', '', '', ''),
+(15, 1, 1, '', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
