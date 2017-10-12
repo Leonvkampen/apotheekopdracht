@@ -7,7 +7,9 @@ include("db_connect.php");
 var_dump ($_SESSION); 
 
 	if ( 
-        !isset($_POST["med10"]) || trim($_POST["med10"]) == '')
+        !isset($_POST["leverdatum"]) || trim($_POST["leverdatum"]) == '' OR
+        !isset($_POST["levertijd"]) || trim($_POST["levertijd"]) == '')
+		
 
 		{
 			
@@ -16,6 +18,7 @@ var_dump ($_SESSION);
    		
 		}
 
+		var_dump($_POST); 
 
     $queryorderid = "SELECT max(`idorder`)  as orderid  FROM `order` 
                                       WHERE patient = '".$_SESSION  ['verzekeringsnummer']."'";
@@ -31,7 +34,13 @@ foreach($recordsorderid as $recordsorderid){
        
 }
 	 
-	var_dump($_POST);
+	$leverdatum = "INSERT INTO `order` (`leverdatum`,
+										`levertijd`)	
+	
+					VALUES			('".$_POST['levertijd']."',
+									 '".$_POST["leverdatum"]."')";
+					
+				
 	$query = "INSERT INTO `orderregel`(`orderid`
 										`aantal`,
 										`med1`)
@@ -43,7 +52,8 @@ foreach($recordsorderid as $recordsorderid){
 								   
 	$result = mysqli_query($connection, $query);
 
-var_dump($query);	
+var_dump($query);
+var_dump($leverdatum);	
 ?>
 
 <br><br><br>

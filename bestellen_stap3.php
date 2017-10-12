@@ -19,7 +19,10 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 
 </head>
+<script type="text/javascript" src="http://services.iperfect.net/js/IP_generalLib.js"> 
 
+
+</script>
 
 <body>
     
@@ -104,7 +107,16 @@
            
               </select>
           
-            
+            <br><br><br>
+			<p> Leverdatum </p>
+			
+		<input type="text" name="leverdatum" id="leverdatum" alt="date" class="IP_calendar" title="d/m/Y">
+		
+		    <p> levertijd </p>
+			
+		<input maxlength="4" type="text" name="levertijd" id="levertijd" alt="time" class="Timepicker">
+
+		
 		<br><br><br>
 		<button type="submit" class="btn btn-danger" name="medicijnBestellen" id="medicijnBestellen" onClick="bestellen_stap3_parse.php">Bestellen</button>
       </form>
