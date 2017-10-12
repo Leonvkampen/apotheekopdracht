@@ -4,7 +4,7 @@ session_start();
 
 include("db_connect.php");
 
-var_dump ($_SESSION); 
+//var_dump ($_SESSION); 
 
 	if ( 
         !isset($_POST["leverdatum"]) || trim($_POST["leverdatum"]) == '' OR
@@ -18,7 +18,7 @@ var_dump ($_SESSION);
    		
 		}
 
-		var_dump($_POST); 
+		//var_dump($_POST); 
 
     $queryorderid = "SELECT max(`idorder`)  as orderid  FROM `order` 
                                       WHERE patient = '".$_SESSION  ['verzekeringsnummer']."'";
@@ -27,8 +27,8 @@ var_dump ($_SESSION);
 
     $recordsorderid = mysqli_fetch_all($resultorderid, MYSQLI_ASSOC); 
 
-var_dump ($queryorderid);
-var_dump ($recordsorderid);
+//var_dump ($queryorderid);
+//var_dump ($recordsorderid);
 
     $querymedicijnid1 = "SELECT idMedicijn FROM `medicijn` 
                                       WHERE naam = '".$_POST["med1"]."'";
@@ -269,17 +269,68 @@ foreach($recordsmedicijnid10 as $recordsmedicijnid10){
 								   
 	$result10 = mysqli_query($connection, $query10);
 	
-	$leverdatum = "UPDATE order
-                    SET                 leverdatum = '".$_POST['leverdatum']."',
-                                        levertijd = '".$_POST['levertijd']."'
-                    WHERE                idOrder = '".$recordsorderid['orderid']."'"; 
+	$leverdatum = "UPDATE `order`
+                    SET                 `leverdatum` = '".$_POST['leverdatum']."',
+                                        `levertijd` = '".$_POST['levertijd']."'
+                    WHERE                `idOrder` = '".$recordsorderid['orderid']."'"; 
 
 
     $resultlevering = mysqli_query($connection, $leverdatum);
+    
 
-    var_dump($leverdatum);
-var_dump($query2);	
+    
+		$queryorderid = "SELECT	*
+				  FROM		`order`
+				  WHERE		`idOrder`			= '".$recordsorderid['orderid']."';";
+        
+		
+				  
+		$resultorderid = mysqli_query($connection, $queryorderid);
+    
+        //var_dump($queryorderid);
+        
+
+        //var_dump($leverdatum);	
+
+        mysqli_close($connection);
 ?>
 
-<br><br><br>
+
+<!DOCTYPE html>
+<html lang="en">
+<link   rel="stylesheet" type="text/css" href="css/style.css">
+
+
+</head>
+<body>
+<?php
+    
+
+        
+        
+    
+    
+ header("refresh:2; url=huisartshome.php");
+
+
+    
+	
+
+?>
+    
+       <h1 style="text-align: center;">Uw bestelling is geplaatst </h1>
+  
+
+    
+    
+   
+     
+    
+<br><
+</body>
+<br><br>
+<footer>
+<?php include 'footer.php'; ?>
+</footer>
 </html>
+
