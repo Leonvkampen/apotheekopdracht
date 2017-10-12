@@ -20,6 +20,8 @@ include("db_connect.php");
 
 		//var_dump($_POST); 
 
+//---------------------------------------------------SELECT QUERY'S---------------------------------------------------------------
+
     $queryorderid = "SELECT max(`idorder`)  as orderid  FROM `order` 
                                       WHERE patient = '".$_SESSION  ['verzekeringsnummer']."'";
 
@@ -27,10 +29,7 @@ include("db_connect.php");
 
     $recordsorderid = mysqli_fetch_all($resultorderid, MYSQLI_ASSOC); 
 
-//var_dump ($queryorderid);
-//var_dump ($recordsorderid);
-
-    $querymedicijnid1 = "SELECT idMedicijn FROM `medicijn` 
+    $querymedicijnid1 = "SELECT idMedicijn, voorraad FROM `medicijn` 
                                       WHERE naam = '".$_POST["med1"]."'";
 
     $resultmedicijnid1 = mysqli_query($connection, $querymedicijnid1);
@@ -38,7 +37,7 @@ include("db_connect.php");
     $recordsmedicijnid1 = mysqli_fetch_all($resultmedicijnid1, MYSQLI_ASSOC); 
 
     
-    $querymedicijnid2 = "SELECT idMedicijn FROM `medicijn` 
+    $querymedicijnid2 = "SELECT idMedicijn, voorraad FROM `medicijn` 
                                       WHERE naam = '".$_POST["med2"]."'";
 
     $resultmedicijnid2 = mysqli_query($connection, $querymedicijnid2);
@@ -46,7 +45,7 @@ include("db_connect.php");
     $recordsmedicijnid2 = mysqli_fetch_all($resultmedicijnid2, MYSQLI_ASSOC); 
 
 
-    $querymedicijnid3 = "SELECT idMedicijn FROM `medicijn` 
+    $querymedicijnid3 = "SELECT idMedicijn, voorraad FROM `medicijn` 
                                       WHERE naam = '".$_POST["med3"]."'";
 
     $resultmedicijnid3 = mysqli_query($connection, $querymedicijnid3);
@@ -54,7 +53,7 @@ include("db_connect.php");
     $recordsmedicijnid3 = mysqli_fetch_all($resultmedicijnid3, MYSQLI_ASSOC); 
 
 
-    $querymedicijnid4 = "SELECT idMedicijn FROM `medicijn` 
+    $querymedicijnid4 = "SELECT idMedicijn, voorraad FROM `medicijn` 
                                       WHERE naam = '".$_POST["med4"]."'";
 
     $resultmedicijnid4 = mysqli_query($connection, $querymedicijnid4);
@@ -62,7 +61,7 @@ include("db_connect.php");
     $recordsmedicijnid4 = mysqli_fetch_all($resultmedicijnid4, MYSQLI_ASSOC); 
 
 
-    $querymedicijnid5 = "SELECT idMedicijn FROM `medicijn` 
+    $querymedicijnid5 = "SELECT idMedicijn, voorraad FROM `medicijn` 
                                       WHERE naam = '".$_POST["med5"]."'";
 
     $resultmedicijnid5 = mysqli_query($connection, $querymedicijnid5);
@@ -70,7 +69,7 @@ include("db_connect.php");
     $recordsmedicijnid5 = mysqli_fetch_all($resultmedicijnid5, MYSQLI_ASSOC); 
 
 
-    $querymedicijnid6 = "SELECT idMedicijn FROM `medicijn` 
+    $querymedicijnid6 = "SELECT idMedicijn, voorraad FROM `medicijn` 
                                       WHERE naam = '".$_POST["med6"]."'";
 
     $resultmedicijnid6 = mysqli_query($connection, $querymedicijnid6);
@@ -78,7 +77,7 @@ include("db_connect.php");
     $recordsmedicijnid6 = mysqli_fetch_all($resultmedicijnid6, MYSQLI_ASSOC); 
 
 
-    $querymedicijnid7 = "SELECT idMedicijn FROM `medicijn` 
+    $querymedicijnid7 = "SELECT idMedicijn, voorraad FROM `medicijn` 
                                       WHERE naam = '".$_POST["med7"]."'";
 
     $resultmedicijnid7 = mysqli_query($connection, $querymedicijnid7);
@@ -86,7 +85,7 @@ include("db_connect.php");
     $recordsmedicijnid7 = mysqli_fetch_all($resultmedicijnid7, MYSQLI_ASSOC); 
 
 
-    $querymedicijnid8 = "SELECT idMedicijn FROM `medicijn` 
+    $querymedicijnid8 = "SELECT idMedicijn, voorraad FROM `medicijn` 
                                       WHERE naam = '".$_POST["med8"]."'";
 
     $resultmedicijnid8 = mysqli_query($connection, $querymedicijnid8);
@@ -94,7 +93,7 @@ include("db_connect.php");
     $recordsmedicijnid8 = mysqli_fetch_all($resultmedicijnid8, MYSQLI_ASSOC); 
 
 
-    $querymedicijnid9 = "SELECT idMedicijn FROM `medicijn` 
+    $querymedicijnid9 = "SELECT idMedicijn, voorraad FROM `medicijn` 
                                       WHERE naam = '".$_POST["med9"]."'";
 
     $resultmedicijnid9 = mysqli_query($connection, $querymedicijnid9);
@@ -102,15 +101,17 @@ include("db_connect.php");
     $recordsmedicijnid9 = mysqli_fetch_all($resultmedicijnid9, MYSQLI_ASSOC); 
 
 
-    $querymedicijnid10 = "SELECT idMedicijn FROM `medicijn` 
+    $querymedicijnid10 = "SELECT idMedicijn, voorraad FROM `medicijn` 
                                       WHERE naam = '".$_POST["med10"]."'";
 
     $resultmedicijnid10 = mysqli_query($connection, $querymedicijnid10);
 
     $recordsmedicijnid10 = mysqli_fetch_all($resultmedicijnid10, MYSQLI_ASSOC); 
 
+    
 
-  
+
+//-------------------------------------------------------FOREACH STATEMENTS-------------------------------------------------------------  
     
 
 foreach($recordsorderid as $recordsorderid){
@@ -155,8 +156,17 @@ foreach($recordsmedicijnid9 as $recordsmedicijnid9){
 foreach($recordsmedicijnid10 as $recordsmedicijnid10){
        
 }
-	 
-	
+
+
+//--------------------------------------------NIEUWE VOORAAD----------------------------------------------------------------------
+$aantal = $_POST["aantal1"];
+
+        $huidigevoorraad = $recordsmedicijnid1['voorraad'];
+
+        $nieuwevooraad = $huidigevoorraad - $aantal;
+
+
+//--------------------------------------------------INSERT QUERY'S-----------------------------------------------------------	
 					
 				
 	$query1 = "INSERT INTO `orderregel`(`medicijnid`,
@@ -268,6 +278,9 @@ foreach($recordsmedicijnid10 as $recordsmedicijnid10){
 
 								   
 	$result10 = mysqli_query($connection, $query10);
+
+
+//--------------------------------------------UPDATE QUERY'S -----------------------------------------------------------------
 	
 	$leverdatum = "UPDATE `order`
                     SET                 `leverdatum` = '".$_POST['leverdatum']."',
@@ -276,23 +289,19 @@ foreach($recordsmedicijnid10 as $recordsmedicijnid10){
 
 
     $resultlevering = mysqli_query($connection, $leverdatum);
-    
 
-    
-		$queryorderid = "SELECT	*
-				  FROM		`order`
-				  WHERE		`idOrder`			= '".$recordsorderid['orderid']."';";
-        
-		
-				  
-		$resultorderid = mysqli_query($connection, $queryorderid);
-    
-        //var_dump($queryorderid);
-        
 
-        //var_dump($leverdatum);	
+    $querynieuwevooraad1 = "UPDATE `medicijn`
+                    SET                 `voorraad` = '".$nieuwevooraad."'
+                    WHERE                `idMedicijn` = '".$recordsmedicijnid1["idMedicijn"]."'"; 
 
-        mysqli_close($connection);
+
+    $resultnieuwevooraad1 = mysqli_query($connection, $querynieuwevooraad1);
+
+    //var_dump($querynieuwevooraad);
+      
+
+    mysqli_close($connection);
 ?>
 
 
@@ -306,9 +315,9 @@ foreach($recordsmedicijnid10 as $recordsmedicijnid10){
 <?php
     
 
+        //var_dump ($recordsvooraadmedicijn);
         
-        
-    
+    exit;
     
  header("refresh:2; url=huisartshome.php");
 
@@ -332,5 +341,9 @@ foreach($recordsmedicijnid10 as $recordsmedicijnid10){
 <footer>
 <?php include 'footer.php'; ?>
 </footer>
+    
 </html>
+
+
+
 
