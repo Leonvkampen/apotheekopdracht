@@ -19,7 +19,7 @@
     </div>
 	<div style="text-align:center;">
 
-	 	<button onclick="location.href='./login.php'" type="button" style="width: 250px;"  class="button" > Bestellingen bekijken </button>
+	 	<button onclick="location.href='./leveringen.php'" type="button" style="width: 250px;"  class="button" > Bestellingen bekijken </button>
 	</div>
 </body>
 <br><br><br>
