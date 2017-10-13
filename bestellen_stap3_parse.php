@@ -21,8 +21,17 @@ include("db_connect.php");
 		var_dump($_POST); 
 
 $med1 = $_POST["med1"];
+$med2 = $_POST["med2"];
+$med3 = $_POST["med3"];
+$med4 = $_POST["med4"];
+$med5 = $_POST["med5"];
+$med6 = $_POST["med6"];
+$med7 = $_POST["med7"];
+$med8 = $_POST["med8"];
+$med9 = $_POST["med9"];
+$med10 = $_POST["med10"];
 
-var_dump($med1);
+
 
 //---------------------------------------------------SELECT QUERY'S---------------------------------------------------------------
     
@@ -76,7 +85,7 @@ var_dump($med1);
         }
 
         
-    if ($med1 = "Vul hier uw medicijn in") 
+    if ($med2 = "Vul hier uw medicijn in") 
         {
             echo "test";
         }else{
@@ -106,7 +115,7 @@ var_dump($med1);
 								   '".$_POST["aantal2"]."')";
 
 								   
-	$result2 = mysqli_query($connection, $query2);
+	    $result2 = mysqli_query($connection, $query2);
         
     }
     
