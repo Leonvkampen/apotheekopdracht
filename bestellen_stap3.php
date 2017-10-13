@@ -48,7 +48,8 @@
             ?>
         
             <p> Medicijn 1 & aantal </p>
-            <select name="med1" type="med1">
+            <select name="med1" type="med1" placeholder="Vul hier uw medicijn in">
+                <option>Vul hier uw medicijn in</option>
                 <?php echo $option; ?>
            
               </select>

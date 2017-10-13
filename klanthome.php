@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+
+<?php
+	session_start();
+	include 'db_connect.php';
+
+?>
 <html lang="en">
 <head style="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,7 +25,7 @@
 	 	<button onclick="location.href='./klantgegevens.php'" type="button" style="width: 250px;"  class="button" > Klantgegevens </button>
         <br>
         <br>
-        <button onclick="location.href='./login.php'" type="button" style="width: 250px;"  class="button" > Leveringstijd veranderen </button>
+        <button onclick="location.href='./leveringstijdveranderen.php'" type="button" style="width: 250px;"  class="button" > Leveringstijd veranderen </button>
         <br>
         <br>
         <button onclick="location.href='./login.php'" type="button" style="width: 250px;"  class="button" > Agenda site </button>

@@ -18,10 +18,14 @@ include("db_connect.php");
    		
 		}
 
-		//var_dump($_POST); 
+		var_dump($_POST); 
+
+$med1 = $_POST["med1"];
+
+var_dump($med1);
 
 //---------------------------------------------------SELECT QUERY'S---------------------------------------------------------------
-
+    
     $queryorderid = "SELECT max(`idorder`)  as orderid  FROM `order` 
                                       WHERE patient = '".$_SESSION  ['verzekeringsnummer']."'";
 
@@ -29,21 +33,86 @@ include("db_connect.php");
 
     $recordsorderid = mysqli_fetch_all($resultorderid, MYSQLI_ASSOC); 
 
-    $querymedicijnid1 = "SELECT idMedicijn, voorraad FROM `medicijn` 
+        if ($med1 = "Vul hier uw medicijn in") 
+        {
+            echo "test";
+        }else{
+            
+            $querymedicijnid1 = "SELECT idMedicijn, voorraad FROM `medicijn` 
                                       WHERE naam = '".$_POST["med1"]."'";
+            $resultmedicijnid1 = mysqli_query($connection, $querymedicijnid1);
 
-    $resultmedicijnid1 = mysqli_query($connection, $querymedicijnid1);
+            $recordsmedicijnid1 = mysqli_fetch_all($resultmedicijnid1, MYSQLI_ASSOC); 
+            
+            
 
-    $recordsmedicijnid1 = mysqli_fetch_all($resultmedicijnid1, MYSQLI_ASSOC); 
+            foreach($recordsmedicijnid1 as $recordsmedicijnid1){
+            }
+            $aantal1 = $_POST["aantal1"];
+
+            $huidigevoorraad = $recordsmedicijnid1['voorraad'];
+
+            $nieuwevooraad = $huidigevoorraad - $aantal1;
+                
+            
+            $query1 = "INSERT INTO `orderregel`(`medicijnid`,
+										`orderid`,
+										`aantal`)
+
+                       VALUES 	  ('".$recordsmedicijnid1["idMedicijn"]."',
+                                   '".$recordsorderid['orderid']."',
+								   '".$_POST["aantal1"]."')";
+            
+            $result1 = mysqli_query($connection, $query1);
+            
+            
+            $querynieuwevooraad1 = "UPDATE `medicijn`
+                    SET                 `voorraad` = '".$nieuwevooraad."'
+                    WHERE               `idMedicijn` = '".$recordsmedicijnid1["idMedicijn"]."'"; 
+
+
+            $resultnieuwevooraad1 = mysqli_query($connection, $querynieuwevooraad1);
+
+        }
+
+        
+    if ($med1 = "Vul hier uw medicijn in") 
+        {
+            echo "test";
+        }else{
+        
+        $querymedicijnid2 = "SELECT idMedicijn, voorraad FROM `medicijn` 
+                                      WHERE naam = '".$_POST["med2"]."'";
+        $resultmedicijnid2 = mysqli_query($connection, $querymedicijnid2);
+
+        $recordsmedicijnid2 = mysqli_fetch_all($resultmedicijnid2, MYSQLI_ASSOC); 
+        
+        
+        foreach($recordsmedicijnid2 as $recordsmedicijnid2){
+        }
+        
+        $aantal2 = $_POST["aantal2"];
+
+        $huidigevoorraad = $recordsmedicijnid2['voorraad'];
+
+        $nieuwevooraad = $huidigevoorraad - $aantal2;
+        
+        $query2 = "INSERT INTO `orderregel`(`medicijnid`,
+										    `orderid`,
+										    `aantal`)
+
+			  VALUES 			  ('".$recordsmedicijnid2["idMedicijn"]."',
+                                   '".$recordsorderid['orderid']."',
+								   '".$_POST["aantal2"]."')";
+
+								   
+	$result2 = mysqli_query($connection, $query2);
+        
+    }
+    
 
     
-    $querymedicijnid2 = "SELECT idMedicijn, voorraad FROM `medicijn` 
-                                      WHERE naam = '".$_POST["med2"]."'";
-
-    $resultmedicijnid2 = mysqli_query($connection, $querymedicijnid2);
-
-    $recordsmedicijnid2 = mysqli_fetch_all($resultmedicijnid2, MYSQLI_ASSOC); 
-
+    
 
     $querymedicijnid3 = "SELECT idMedicijn, voorraad FROM `medicijn` 
                                       WHERE naam = '".$_POST["med3"]."'";
@@ -118,13 +187,8 @@ foreach($recordsorderid as $recordsorderid){
        
 }
 
-foreach($recordsmedicijnid1 as $recordsmedicijnid1){
-       
-}
 
-foreach($recordsmedicijnid2 as $recordsmedicijnid2){
-       
-}
+
 
 foreach($recordsmedicijnid3 as $recordsmedicijnid3){
        
@@ -159,37 +223,68 @@ foreach($recordsmedicijnid10 as $recordsmedicijnid10){
 
 
 //--------------------------------------------NIEUWE VOORAAD----------------------------------------------------------------------
-$aantal = $_POST["aantal1"];
 
-        $huidigevoorraad = $recordsmedicijnid1['voorraad'];
 
-        $nieuwevooraad = $huidigevoorraad - $aantal;
 
+
+$aantal3 = $_POST["aantal3"];
+
+        $huidigevoorraad = $recordsmedicijnid3['voorraad'];
+
+        $nieuwevooraad = $huidigevoorraad - $aantal3;
+
+$aantal4 = $_POST["aantal4"];
+
+        $huidigevoorraad = $recordsmedicijnid4['voorraad'];
+
+        $nieuwevooraad = $huidigevoorraad - $aantal4;
+
+$aantal5 = $_POST["aantal5"];
+
+        $huidigevoorraad = $recordsmedicijnid5['voorraad'];
+
+        $nieuwevooraad = $huidigevoorraad - $aantal5;
+
+$aantal6 = $_POST["aantal6"];
+
+        $huidigevoorraad = $recordsmedicijnid6['voorraad'];
+
+        $nieuwevooraad = $huidigevoorraad - $aantal6;
+
+$aantal7 = $_POST["aantal7"];
+
+        $huidigevoorraad = $recordsmedicijnid7['voorraad'];
+
+        $nieuwevooraad = $huidigevoorraad - $aantal7;
+
+$aantal8 = $_POST["aantal8"];
+
+        $huidigevoorraad = $recordsmedicijnid8['voorraad'];
+
+        $nieuwevooraad = $huidigevoorraad - $aantal8;
+
+$aantal9 = $_POST["aantal9"];
+
+        $huidigevoorraad = $recordsmedicijnid9['voorraad'];
+
+        $nieuwevooraad = $huidigevoorraad - $aantal9;
+
+$aantal10 = $_POST["aantal10"];
+
+        $huidigevoorraad = $recordsmedicijnid10['voorraad'];
+
+        $nieuwevooraad = $huidigevoorraad - $aantal10   ;
+
+var_dump($aantal10);
 
 //--------------------------------------------------INSERT QUERY'S-----------------------------------------------------------	
 					
 				
-	$query1 = "INSERT INTO `orderregel`(`medicijnid`,
-										`orderid`,
-										`aantal`)
-
-			  VALUES 			  ('".$recordsmedicijnid1["idMedicijn"]."',
-                                   '".$recordsorderid['orderid']."',
-								   '".$_POST["aantal1"]."')";
+	
 
 								   
-	$result1 = mysqli_query($connection, $query1);
-
-    $query2 = "INSERT INTO `orderregel`(`medicijnid`,
-										`orderid`,
-										`aantal`)
-
-			  VALUES 			  ('".$recordsmedicijnid2["idMedicijn"]."',
-                                   '".$recordsorderid['orderid']."',
-								   '".$_POST["aantal2"]."')";
-
-								   
-	$result2 = mysqli_query($connection, $query2);
+	
+   
 	
 	$query3 = "INSERT INTO `orderregel`(`medicijnid`,
 										`orderid`,
@@ -291,16 +386,10 @@ $aantal = $_POST["aantal1"];
     $resultlevering = mysqli_query($connection, $leverdatum);
 
 
-    $querynieuwevooraad1 = "UPDATE `medicijn`
-                    SET                 `voorraad` = '".$nieuwevooraad."'
-                    WHERE                `idMedicijn` = '".$recordsmedicijnid1["idMedicijn"]."'"; 
-
-
-    $resultnieuwevooraad1 = mysqli_query($connection, $querynieuwevooraad1);
-
+    
     //var_dump($querynieuwevooraad);
       
-
+//--------------------------------------------CONNECTIONQUERY-----------------------------------------------------------------
     mysqli_close($connection);
 ?>
 

@@ -56,7 +56,7 @@
     <div style="text-align:center;">
 
      <br>
-     <button onclick="location.href='./koerierhome.php'" type="button" style="width: 20%;"  class="button"  > Terug </button>
+     <button onclick="location.href='./apothekerhome.php'" type="button" style="width: 20%;"  class="button"  > Terug </button>
      <br>
     </div>
 
