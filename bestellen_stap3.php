@@ -57,6 +57,7 @@
             
             <p> Medicijn 2 & aantal</p>
             <select name="med2" type="med2">
+			<option>Vul hier uw medicijn in</option>
                 <?php echo $option; ?>
            
               </select>
@@ -64,6 +65,7 @@
             
 			<p> Medicijn 3 & aantal</p>
             <select name="med3" type="med3">
+			<option>Vul hier uw medicijn in</option>
                 <?php echo $option; ?>
            
               </select>
@@ -71,6 +73,7 @@
 			  
 			<p> Medicijn 4 & aantal</p>
             <select name="med4" type="med4">
+			<option>Vul hier uw medicijn in</option>
                 <?php echo $option; ?>
            
               </select>
@@ -78,6 +81,7 @@
 			  
 			<p> Medicijn 5 & aantal</p>
             <select name="med5" type="med5">
+			<option>Vul hier uw medicijn in</option>
                 <?php echo $option; ?>
            
               </select>
@@ -85,6 +89,7 @@
 			  
 			<p> Medicijn 6 & aantal</p>
             <select name="med6" type="med6">
+			<option>Vul hier uw medicijn in</option>
                 <?php echo $option; ?>
            
               </select>
@@ -92,6 +97,7 @@
 			  
 			<p> Medicijn 7 & aantal</p>
             <select name="med7" type="med7">
+			<option>Vul hier uw medicijn in</option>
                 <?php echo $option; ?>
            
               </select>
@@ -99,6 +105,7 @@
 			  
 			<p> Medicijn 8 & aantal</p>
             <select name="med8" type="med8">
+			<option>Vul hier uw medicijn in</option>
                 <?php echo $option; ?>
            
               </select>
@@ -106,6 +113,7 @@
 			  
 			<p> Medicijn 9 & aantal</p>
             <select name="med9" type="med9">
+			<option>Vul hier uw medicijn in</option>
                 <?php echo $option; ?>
            
               </select>
@@ -113,6 +121,7 @@
 			  
 			<p> Medicijn 10 & aantal</p>
             <select name="med10" type="med10">
+			<option>Vul hier uw medicijn in</option>
                 <?php echo $option; ?>
            
               </select>
