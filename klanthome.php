@@ -27,7 +27,7 @@
 	 	<button onclick="location.href='./klantgegevens.php'" type="button" style="width: 250px;"  class="button" > Klantgegevens </button>
         <br>
         <br>
-        <button onclick="location.href='./leveringstijdveranderen.php'" type="button" style="width: 250px;"  class="button" > Leveringstijd veranderen </button>
+        <button onclick="location.href='./leveringstijdveranderen_doorstuur.php'" type="button" style="width: 250px;"  class="button" > Leveringstijd veranderen </button>
         <br>
         <br>
 		<button onclick="location.href='./leverdatumveranderen.php'" type="button" style="width: 250px;"  class="button" > Leverdatum veranderen </button>

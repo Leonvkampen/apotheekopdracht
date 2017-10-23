@@ -41,33 +41,40 @@ $med10 = $_POST["med10"];
 
     $resultorderid = mysqli_query($connection, $queryorderid);
 
-    $recordsorderid = mysqli_fetch_all($resultorderid, MYSQLI_ASSOC); 
-	
-	
+    $recordsorderid = mysqli_fetch_all($resultorderid, MYSQLI_ASSOC);
+
+    foreach($recordsorderid as $recordsorderid){
+
+    }
+
 	//------------------------------------------------IF MED 1--------------------------------------------------------------------
 
-    if  ($med1 = "Vul hier uw medicijn in") 
+        $querymedicijnid1 = "SELECT idMedicijn, voorraad FROM `medicijn` 
+                                              WHERE naam = '".$_POST["med1"]."'";
+        $resultmedicijnid1 = mysqli_query($connection, $querymedicijnid1);
+
+        $recordsmedicijnid1 = mysqli_fetch_all($resultmedicijnid1, MYSQLI_ASSOC);
+
+        foreach($recordsmedicijnid1 as $recordsmedicijnid1){
+        }
+
+    if  ($med1 == "Vul hier uw medicijn in")
         {
-            echo "test";
-        }else{
-            
-            $querymedicijnid1 = "SELECT idMedicijn, voorraad FROM `medicijn` 
-                                      WHERE naam = '".$_POST["med1"]."'";
-            $resultmedicijnid1 = mysqli_query($connection, $querymedicijnid1);
+            echo "test1";
+        }elseif ( $recordsmedicijnid1["voorraad"] < '5' )
+    {
+        echo "Dit medicijn is niet in voorraad";
 
-            $recordsmedicijnid1 = mysqli_fetch_all($resultmedicijnid1, MYSQLI_ASSOC); 
-            
-            
+    }
+    else{
 
-            foreach($recordsmedicijnid1 as $recordsmedicijnid1){
-            }
             $aantal1 = $_POST["aantal1"];
 
             $huidigevoorraad = $recordsmedicijnid1['voorraad'];
 
             $nieuwevooraad = $huidigevoorraad - $aantal1;
-                
-            
+
+
             $query1 = "INSERT INTO `orderregel`(`medicijnid`,
 										`orderid`,
 										`aantal`)
@@ -75,13 +82,13 @@ $med10 = $_POST["med10"];
                        VALUES 	  ('".$recordsmedicijnid1["idMedicijn"]."',
                                    '".$recordsorderid['orderid']."',
 								   '".$_POST["aantal1"]."')";
-            
+
             $result1 = mysqli_query($connection, $query1);
-            
-            
+
+
             $querynieuwevooraad1 = "UPDATE `medicijn`
                     SET                 `voorraad` = '".$nieuwevooraad."'
-                    WHERE               `idMedicijn` = '".$recordsmedicijnid1["idMedicijn"]."'"; 
+                    WHERE               `idMedicijn` = '".$recordsmedicijnid1["idMedicijn"]."'";
 
 
             $resultnieuwevooraad1 = mysqli_query($connection, $querynieuwevooraad1);
@@ -89,7 +96,7 @@ $med10 = $_POST["med10"];
         }
 
     //------------------------------------------------IF MED 2--------------------------------------------------------------------    
-    if ($med2 = "Vul hier uw medicijn in") 
+    if ($med2 == "Vul hier uw medicijn in")
         {
             echo "test";
         }else{
@@ -123,7 +130,7 @@ $med10 = $_POST["med10"];
         
 		}
 	//------------------------------------------------IF MED 3--------------------------------------------------------------------	
-	if ($med3 = "Vul hier uw medicijn in") 
+	if ($med3 == "Vul hier uw medicijn in")
         {
             echo "test";
         }else{
@@ -155,7 +162,7 @@ $med10 = $_POST["med10"];
 		}
     
 	//------------------------------------------------IF MED 4--------------------------------------------------------------------
-	if ($med4 = "Vul hier uw medicijn in") 
+	if ($med4 == "Vul hier uw medicijn in")
         {
             echo "test";
         }else{
@@ -189,7 +196,7 @@ $med10 = $_POST["med10"];
 		
 		}
 	//------------------------------------------------IF MED 5--------------------------------------------------------------------		
-	if ($med5 = "Vul hier uw medicijn in") 
+	if ($med5 == "Vul hier uw medicijn in")
         {
             echo "test";
         }else{
@@ -220,7 +227,7 @@ $med10 = $_POST["med10"];
 		
 		}
 	//------------------------------------------------IF MED 6--------------------------------------------------------------------
-	if ($med6 = "Vul hier uw medicijn in") 
+	if ($med6 == "Vul hier uw medicijn in")
         {
             echo "test";
         }else{
@@ -252,7 +259,7 @@ $med10 = $_POST["med10"];
 		
 		}
     //------------------------------------------------IF MED 7--------------------------------------------------------------------
-    if ($med7 = "Vul hier uw medicijn in") 
+    if ($med7 == "Vul hier uw medicijn in")
         {
             echo "test";
         }else{
@@ -282,7 +289,7 @@ $med10 = $_POST["med10"];
 		$result7 = mysqli_query($connection, $query7);
 		}
 	//------------------------------------------------IF MED 8--------------------------------------------------------------------	
-	if ($med8 = "Vul hier uw medicijn in") 
+	if ($med8 == "Vul hier uw medicijn in")
         {
             echo "test";
         }else{
@@ -315,7 +322,7 @@ $med10 = $_POST["med10"];
 		
 		}
 	//------------------------------------------------IF MED 9--------------------------------------------------------------------
-    if ($med9 = "Vul hier uw medicijn in") 
+    if ($med9 == "Vul hier uw medicijn in")
         {
             echo "test";
         }else{
@@ -346,7 +353,7 @@ $med10 = $_POST["med10"];
 		$result9 = mysqli_query($connection, $query9);
 		}
 	//------------------------------------------------IF MED 10--------------------------------------------------------------------
-	if ($med10 = "Vul hier uw medicijn in") 
+	if ($med10 == "Vul hier uw medicijn in")
         {
             echo "test";
         }else{
@@ -377,12 +384,6 @@ $med10 = $_POST["med10"];
 		$result10 = mysqli_query($connection, $query10);
 		}
 	
-	
-	//------------------------------------------------FOREACH RECORDORDERID--------------------------------------------------------------------
-foreach($recordsorderid as $recordsorderid){
-       
-}
-
 
 	//------------------------------------------------LEVERDATUM EN LEVERTIJD--------------------------------------------------------------------
 	$leverdatum = "UPDATE `order`

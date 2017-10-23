@@ -57,7 +57,7 @@
             
             <p> Medicijn 2 & aantal</p>
             <select name="med2" type="med2">
-			<option>Vul hier uw medicijn in</option>
+			<option value="">Vul hier uw medicijn in</option>
                 <?php echo $option; ?>
            
               </select>
