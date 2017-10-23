@@ -9,11 +9,13 @@
 	$result = mysqli_query($connection, $query);
 	var_dump($result);
 	
-	  $levertijd = $_SESSION["levertijd"];
+	  /*$levertijd = $_SESSION["levertijd"];
 	  $_SESSION["levertijd"] = $nieuwelevertijd;
-		//header("location:leveringstijdveranderen_parse.php");
+		//header("location:leveringstijdveranderen_parse.php");*/
 		
-		var_dump($levertijd);
+		
+        $levertijd = $_GET['levertijd'];
+        var_dump($levertijd);
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +30,7 @@
     <table style="margin-left: 22%;">
             <tr>
                 <td>Nieuwe leveringstijd			
-                        <input style="width: 100%" type="time" placeholder="nieuwe leveringstijd" value="">
+                        <input style="width: 100%" type="time" placeholder="nieuwe leveringstijd" value="<?= $_GET["levertijd"] ?>">
                 <br><br>
             
                         <input style="width: 101%" type="submit" id="leveringsbutton" class="button_account" action="leveringstijdveranderen_parse.php" method="post"/>
