@@ -2,7 +2,17 @@
     session_start();
 	
 
-	
+
+  $date = $_GET["leverdatum"];
+$date1 = str_replace('/', '-', $date);
+$tomorrow = date('Y-m-d',strtotime($date1 . "+1 days"));
+
+echo $tomorrow;
+
+var_dump($tomorrow);
+
+
+
 	include("db_connect.php");
 	$query = "SELECT * FROM `order`";
 	
@@ -36,7 +46,7 @@
 			<input type="hidden" name="orderid" id="orderid" value="<?= $_GET["orderid"] ?>">
                 <td>Nieuwe leverdatum	
 						
-                        <input name="leverdatum" id="nieuweleverdatum" style="width: 100%" type="time" placeholder="nieuwe leveringstijd" value="">
+                        <input name="leverdatum" id="nieuweleverdatum" style="width: 100%" type="text" placeholder="nieuwe leveringstijd" value="<?= $tomorrow ?>" readonly>
                 <br><br>
             
                         <input style="width: 101%" type="submit" id="leveringsbutton" class="button_account" action="leverdatumveranderen_parse.php" method="post"/>

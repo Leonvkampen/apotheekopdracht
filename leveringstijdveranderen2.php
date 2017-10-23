@@ -10,6 +10,8 @@
 	//var_dump($result);
 		
 	//var_dump($_GET["levertijd"]);
+	
+	
 ?>
 
 <!DOCTYPE html>

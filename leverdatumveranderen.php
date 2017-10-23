@@ -66,7 +66,7 @@ var_dump($querypatientnaam);
 						<td>".$patientnaam."</td>
 						<td>".$row["leverdatum"]."</td>
 						<td>
-							<a href='leveringstijdveranderen2.php?levertijd=".$row["leverdatum"]."&orderid=".$row["idOrder"]."'/>
+							<a href='leverdatumveranderen2.php?leverdatum=".$row["leverdatum"]."&orderid=".$row["idOrder"]."'/>
 				            <img src='icons/drop.png' alt='levertijd aanpassen'>
 							</a>
                         </td>
