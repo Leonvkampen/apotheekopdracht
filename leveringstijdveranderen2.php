@@ -8,14 +8,8 @@
 	
 	$result = mysqli_query($connection, $query);
 	//var_dump($result);
-	
-	  /*$levertijd = $_SESSION["levertijd"];
-	  $_SESSION["levertijd"] = $nieuwelevertijd;
-		//header("location:leveringstijdveranderen_parse.php");*/
 		
-		
-        $levertijd = $_GET['levertijd'];
-        //var_dump($levertijd);
+	//var_dump($_GET["levertijd"]);
 ?>
 
 <!DOCTYPE html>
@@ -23,38 +17,45 @@
 <link   rel="stylesheet" type="text/css" href="css/style.css">
 
 
+
 </head>
 
 <body>
-    
-    <div>
-<form id="levertijveranderen" style="margin-left: 22%;" method="post" action="leveringstijdveranderen_parse.php">
+<div>
+<form class="table" method="post" style="margin-left: 22%;" action="leveringstijdveranderen_parse.php">
     <table style="margin-left: 22%;">
-
+			<tr>
+				<td>
+					Huidige leveringstijd
+					<input style="width: 100%" placeholder="nieuwe leveringstijd" value="<?= $_GET["levertijd"] ?>" readonly>
+				</td>
+			</tr>
+			<tr>
+			<br><br>
+			</tr>
+			
             <tr>
-            
-                <td>Nieuwe leveringstijd
-                        <input type="hidden" value="<?= $_GET["orderid"] ?>">
-                        <input style="width: 100%" type="time" name="levertijd" id="levertijd" placeholder="nieuwe leveringstijd" value="<?= $_GET["levertijd"] ?>">
+			<input type="hidden" name="orderid" id="nieuweorderid" value="<?= $_GET["orderid"] ?>">
+                <td>Nieuwe leveringstijd	
+						
+                        <input name="levertijd" id="nieuwelevertijd" style="width: 100%" type="time" placeholder="nieuwe leveringstijd" value="">
                 <br><br>
-
-                       <button type="submit" class="btn btn-danger" name="levertijdveranderen" id="medicijnBestellen" onClick="leveringstijdveranderen_parse.php">Verzenden</button>
-     
+            
+                        <input style="width: 101%" type="submit" id="leveringsbutton" class="button_account" action="leveringstijdveranderen_parse.php" method="post"/>
            </td>
         </tr>
-        </table>
-        </form>
-        
-        <br><br><br><br><br>
+		</table>
+		</form>
+		
+		<br><br><br><br><br>
  <table style="margin-left: 36%; width: 25%">
  <tr>
-            <td>
-            <button onclick="location.href='./leveringstijdveranderen.php'" type="button" style="width: 101%;"  class="button" > Terug </button>
-            </td>
+			<td>
+			<button onclick="location.href='./leveringstijdveranderen.php'" type="button" style="width: 101%;"  class="button" > Terug </button>
+			</td>
  </tr>
- </table>
-
-
- 
+ </table>   
+    
 </div>
 </body>
+</html>
