@@ -4,15 +4,18 @@
 
 	
 	include("db_connect.php");
-
 	
-	$query = "UPDATE order
-	          SET                  `levertijd` = '".$_POST['levertijd']."'"; 
-
+	
+	$query = "UPDATE `order`
+	          SET                  `levertijd` = '".$_POST['levertijd']."'
+			  WHERE                `idOrder` = '".$_POST['orderid']."'";
 
 
 	$result = mysqli_query($connection, $query);
+	var_dump($query);
+	
+	
 
 	
-		//header("location:leveringstijdveranderen_parse.php");
+		header("location:klanthome.php");
 ?>
