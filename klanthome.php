@@ -28,6 +28,9 @@
         <button onclick="location.href='./leveringstijdveranderen.php'" type="button" style="width: 250px;"  class="button" > Leveringstijd veranderen </button>
         <br>
         <br>
+		<button onclick="location.href='./leverdatumveranderen.php'" type="button" style="width: 250px;"  class="button" > Leverdatum veranderen </button>
+        <br>
+        <br>
         <button onclick="location.href='./login.php'" type="button" style="width: 250px;"  class="button" > Agenda site </button>
 	</div>
 </body>
