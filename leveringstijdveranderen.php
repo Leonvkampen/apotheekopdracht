@@ -11,11 +11,11 @@
 
     $resultverzekeringsnummer = mysqli_query($connection, $queryverzekeringsnummer);
 	
-	$queryleverdatum = "SELECT	*
+	$querylevertijd = "SELECT	*
 				  FROM		`order`";
 
-    $resultleverdatum = mysqli_query($connection, $queryleverdatum);
-	var_dump($queryleverdatum);
+    $resultlevertijd = mysqli_query($connection, $querylevertijd);
+	var_dump($querylevertijd);
 
 	
 	$querypatientnaam = "SELECT	*
@@ -27,9 +27,9 @@ var_dump($querypatientnaam);
 
 
 
-	$queryorderid = "SELECT o.idOrder, o.leverdatum
+	$queryorderid = "SELECT o.idOrder, o.levertijd
 					 FROM `order` as o, `patient` as p 
-					 WHERE p.Verzekeringsnummer = '".$verzekeringsnummer."' and p.Verzekeringsnummer = o.patient;";
+					 WHERE p.Verzekeringsnummer = '".$verzekeringsnummer."' and p.Verzekeringsnummer = o.patient";
 					 
 	$resultorderid = mysqli_query($connection, $queryorderid);
 	
@@ -46,7 +46,7 @@ var_dump($querypatientnaam);
 <body>
 
     
-       <h1 style="text-align: center;">Leveringsdatum aanpassen</h1>
+       <h1 style="text-align: center;">Leveringstijd aanpassen</h1>
   
 
 <table width="300" border="1" cellpadding="1" cellspacing="1" align="center"  >
@@ -54,7 +54,7 @@ var_dump($querypatientnaam);
 				<th>orderID</th>
 				<th>Verzkeringsnummer</th>
                 <th>Naam</th>
-                <th>leverdatum</th>
+                <th>levertijd</th>
                 
 			</tr>
 <?php
@@ -64,10 +64,10 @@ var_dump($querypatientnaam);
 						<td><br>".$row["idOrder"]."</td>
 						<td>".$verzekeringsnummer."</td>
 						<td>".$patientnaam."</td>
-						<td>".$row["leverdatum"]."</td>
+						<td>".$row["levertijd"]."</td>
 						<td>
-							<a href='leveringstijdveranderen_parse.php?leverdatum=".$row["leverdatum"]."&orderid=".$row["idOrder"]."'/>
-				            <img src='icons/drop.png' alt='leverdatum aanpassen'>
+							<a href='leveringstijdveranderen2.php?levertijd=".$row["levertijd"]."&orderid=".$row["idOrder"]."'/>
+				            <img src='icons/drop.png' alt='levertijd aanpassen'>
 							</a>
                         </td>
                         <br><br>

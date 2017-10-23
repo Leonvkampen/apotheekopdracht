@@ -7,7 +7,7 @@
 
 	
 	$query = "UPDATE order
-	          SET                  `leverdatum` = '".$_GET['leverdatum']."'"; 
+	          SET                  `levertijd` = '".$_POST['levertijd']."'"; 
 
 
 
