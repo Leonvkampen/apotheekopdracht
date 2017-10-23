@@ -5,8 +5,26 @@
 	include 'db_connect.php';
 
 	
-	
+
+$timezone = date_default_timezone_set('Europe/Amsterdam');
+$date = date('H:i:s');
+
+if ($date < '12:28:00' )
+{
+	echo "Hello";
+}
+else
+{
+	echo "goodbye";
+}
+
+echo $date;
+
+
+
 ?>
+
+
 <html lang="en">
 <head style="">
 <meta name="viewport" content="width=device-width, initial-scale=1">

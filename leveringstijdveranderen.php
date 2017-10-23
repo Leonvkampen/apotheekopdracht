@@ -34,6 +34,19 @@ var_dump($querypatientnaam);
 	$resultorderid = mysqli_query($connection, $queryorderid);
 	
 	var_dump($queryorderid);
+
+$timezone = date_default_timezone_set('Europe/Amsterdam');
+$date = date('H:i:s');
+
+
+if ($date > '13:30:00' )
+{
+	header("location:telaat.php");
+}
+else
+{
+	
+}
 ?>
 
 <!DOCTYPE html>
