@@ -3,6 +3,12 @@ ob_start();
 session_start();
 
 include("db_connect.php");
+//var_dump($_SESSION);
+/*insert_order($val, $arr);
+
+function insert_order($val, $arr, $bool = false) {
+    insert_order();
+}*/
 
 //var_dump ($_SESSION); 
 
@@ -18,387 +24,138 @@ include("db_connect.php");
    		
 		}
 
-		var_dump($_POST); 
+		//var_dump($_POST); 
+
 
 	//------------------------------------------------MED POSTS--------------------------------------------------------------------
-$med1 = $_POST["med1"];
-$med2 = $_POST["med2"];
-$med3 = $_POST["med3"];
-$med4 = $_POST["med4"];
-$med5 = $_POST["med5"];
-$med6 = $_POST["med6"];
-$med7 = $_POST["med7"];
-$med8 = $_POST["med8"];
-$med9 = $_POST["med9"];
-$med10 = $_POST["med10"];
 
+        function insert_order($connection, $second = false) {
+        
+            if ($second == false) {
+                
+            
+             $query = "INSERT INTO `order`        (`leverdatum`,
+                                                  `levertijd`,
+                                                  `huisartsid`,
+								                  `koerier`,
+												  `Patient`,
+								                  `Apotheek`,
+                                                  `geannuleerd`)
 
+			  VALUES 			                 ('".$_POST['leverdatum']."',
+                                                  '".$_POST['levertijd']."',
+                                                  '".$_SESSION['huisartsid']."',
+								                 '1',
+												 '".$_SESSION['verzekeringsnummer']."',
+								                 '1',
+                                                 '0')";
 
-//---------------------------------------------------SELECT QUERY'S---------------------------------------------------------------
-    
-    $queryorderid = "SELECT max(`idorder`)  as orderid  FROM `order` 
-                                      WHERE patient = '".$_SESSION  ['verzekeringsnummer']."'";
+            mysqli_query($connection, $query);
+            
+            $orderId = mysqli_insert_id($connection);
+        
+            insert_orderline($orderId, $connection);
+               
+                
+                } else {
+                
+                
+                
+                    $query = "INSERT INTO `order`(`leverdatum`,
+                                                  `levertijd`,
+                                                  `huisartsid`,
+								                  `koerier`,
+												  `Patient`,
+								                  `Apotheek`,
+                                                  `geannuleerd`)
 
-    $resultorderid = mysqli_query($connection, $queryorderid);
+			  VALUES 			                 ('".$_POST['leverdatum']."',
+                                                  '".$_POST['levertijd']."',
+                                                  '".$_SESSION['huisartsid']."',
+								                 '1',
+												 '".$_SESSION['verzekeringsnummer']."',
+								                 '1',
+                                                 '1')";
 
-    $recordsorderid = mysqli_fetch_all($resultorderid, MYSQLI_ASSOC);
-
-    foreach($recordsorderid as $recordsorderid){
-
-    }
-
-	//------------------------------------------------IF MED 1--------------------------------------------------------------------
-
-        $querymedicijnid1 = "SELECT idMedicijn, voorraad FROM `medicijn` 
-                                              WHERE naam = '".$_POST["med1"]."'";
-        $resultmedicijnid1 = mysqli_query($connection, $querymedicijnid1);
-
-        $recordsmedicijnid1 = mysqli_fetch_all($resultmedicijnid1, MYSQLI_ASSOC);
-
-        foreach($recordsmedicijnid1 as $recordsmedicijnid1){
+            mysqli_query($connection, $query);
+            
+            $orderIdSecond = mysqli_insert_id($connection);
+                insert_orderline($orderIdSecond, $connection, true);
+               //var_dump($orderIdSecond, $connection, true); 
+            }
+            
+            
+            
+        
+            
         }
 
-    if  ($med1 == "Vul hier uw medicijn in")
-        {
-            echo "test1";
-        }elseif ( $recordsmedicijnid1["voorraad"] < '5' )
-    {
-        echo "Dit medicijn is niet in voorraad";
+        function insert_orderline($orderId, $connection, $third = false) {
+                
+             foreach($_POST as $key => $val) {
+                if (strpos($key, 'med') !== false) {
+                    $aantalKey = str_replace('med', 'aantal', $key) ;
+                        
+                                //queries
+                       
+                    $querymedicijnid = "SELECT voorraad FROM `medicijn` 
+                                                          WHERE idMedicijn = '$val'";
+                    $resultmedicijnid = mysqli_query($connection, $querymedicijnid);
 
-    }
-    else{
+                    $recordsmedicijnid = mysqli_fetch_all($resultmedicijnid, MYSQLI_ASSOC);
+                        
+                          // var_dump($recordsmedicijnid);
+                    
+                    if  ($_POST[$key] == "Vul hier uw medicijn in")
+                    {
+                        
+                        
+                    }elseif ($third == false || $recordsmedicijnid[0]['voorraad'] < '5' )
+                    {
+                        
+                    echo "Dit medicijn is niet in voorraadrd";
+                        
+                        insert_order($connection, true);
+                        
+                    } elseif ($third == true) {
+                        echo "Dtestsetsetestestests";
+                    }
+                    else{
 
-            $aantal1 = $_POST["aantal1"];
+                    $huidigevoorraad = $recordsmedicijnid[0]['voorraad'];
 
-            $huidigevoorraad = $recordsmedicijnid1['voorraad'];
+                    $nieuwevooraad = $huidigevoorraad - $_POST[$aantalKey];
 
-            $nieuwevooraad = $huidigevoorraad - $aantal1;
+                    var_dump($nieuwevooraad);
+                        
+                    $query1 = "INSERT INTO `orderregel`(`medicijnid`,
+                                                    `orderid`,
+                                                    `aantal`)
+
+                                   VALUES 	  ('".$val."',
+                                               '".$orderId."',
+                                               '".$_POST[$aantalKey]."')";
+
+                    mysqli_query($connection, $query1);
+
+                  
+                    $querynieuwevooraad = "UPDATE `medicijn`
+                                SET                 `voorraad` = '".$nieuwevooraad."'
+                                WHERE               `idMedicijn` = '$val'";
 
 
-            $query1 = "INSERT INTO `orderregel`(`medicijnid`,
-										`orderid`,
-										`aantal`)
+                    $resultnieuwevooraad = mysqli_query($connection, $querynieuwevooraad);
 
-                       VALUES 	  ('".$recordsmedicijnid1["idMedicijn"]."',
-                                   '".$recordsorderid['orderid']."',
-								   '".$_POST["aantal1"]."')";
+                    }
 
-            $result1 = mysqli_query($connection, $query1);
-
-
-            $querynieuwevooraad1 = "UPDATE `medicijn`
-                    SET                 `voorraad` = '".$nieuwevooraad."'
-                    WHERE               `idMedicijn` = '".$recordsmedicijnid1["idMedicijn"]."'";
-
-
-            $resultnieuwevooraad1 = mysqli_query($connection, $querynieuwevooraad1);
-
+                }
+            }
         }
 
-    //------------------------------------------------IF MED 2--------------------------------------------------------------------    
-    if ($med2 == "Vul hier uw medicijn in")
-        {
-            echo "test";
-        }else{
-        
-        $querymedicijnid2 = "SELECT idMedicijn, voorraad FROM `medicijn` 
-                                      WHERE naam = '".$_POST["med2"]."'";
-        $resultmedicijnid2 = mysqli_query($connection, $querymedicijnid2);
-
-        $recordsmedicijnid2 = mysqli_fetch_all($resultmedicijnid2, MYSQLI_ASSOC); 
-        
-        
-        foreach($recordsmedicijnid2 as $recordsmedicijnid2){
-        }
-        
-        $aantal2 = $_POST["aantal2"];
-
-        $huidigevoorraad = $recordsmedicijnid2['voorraad'];
-
-        $nieuwevooraad = $huidigevoorraad - $aantal2;
-        
-        $query2 = "INSERT INTO `orderregel`(`medicijnid`,
-										    `orderid`,
-										    `aantal`)
-
-			  VALUES 			  ('".$recordsmedicijnid2["idMedicijn"]."',
-                                   '".$recordsorderid['orderid']."',
-								   '".$_POST["aantal2"]."')";
-
-								   
-	    $result2 = mysqli_query($connection, $query2);
-        
-		}
-	//------------------------------------------------IF MED 3--------------------------------------------------------------------	
-	if ($med3 == "Vul hier uw medicijn in")
-        {
-            echo "test";
-        }else{
-        
-         $querymedicijnid3 = "SELECT idMedicijn, voorraad FROM `medicijn` 
-                                      WHERE naam = '".$_POST["med3"]."'";
-
-		$resultmedicijnid3 = mysqli_query($connection, $querymedicijnid3);
-
-		$recordsmedicijnid3 = mysqli_fetch_all($resultmedicijnid3, MYSQLI_ASSOC);
-        foreach($recordsmedicijnid3 as $recordsmedicijnid3){
-		}
-		$aantal3 = $_POST["aantal3"];
-
-        $huidigevoorraad = $recordsmedicijnid3['voorraad'];
-
-        $nieuwevooraad = $huidigevoorraad - $aantal3;
-		
-		$query3 = "INSERT INTO `orderregel`(`medicijnid`,
-										`orderid`,
-										`aantal`)
-
-			  VALUES 			  ('".$recordsmedicijnid3["idMedicijn"]."',
-                                   '".$recordsorderid['orderid']."',
-								  '".$_POST["aantal3"]."')";
-
-								   
-		$result3 = mysqli_query($connection, $query3);
-		}
-    
-	//------------------------------------------------IF MED 4--------------------------------------------------------------------
-	if ($med4 == "Vul hier uw medicijn in")
-        {
-            echo "test";
-        }else{
-		$querymedicijnid4 = "SELECT idMedicijn, voorraad FROM `medicijn` 
-                                      WHERE naam = '".$_POST["med4"]."'";
-
-		$resultmedicijnid4 = mysqli_query($connection, $querymedicijnid4);
-
-		$recordsmedicijnid4 = mysqli_fetch_all($resultmedicijnid4, MYSQLI_ASSOC);
-			
-			
-		foreach($recordsmedicijnid4 as $recordsmedicijnid4){
-		
-		}
-		$aantal4 = $_POST["aantal4"];
-
-        $huidigevoorraad = $recordsmedicijnid4['voorraad'];
-
-        $nieuwevooraad = $huidigevoorraad - $aantal4;
-		
-		$query4 = "INSERT INTO `orderregel`(`medicijnid`,
-										`orderid`,
-										`aantal`)
-
-			  VALUES 			  ('".$recordsmedicijnid4["idMedicijn"]."',
-                                   '".$recordsorderid['orderid']."',
-								   '".$_POST["aantal4"]."')";
-
-								   
-		$result4 = mysqli_query($connection, $query4);
-		
-		}
-	//------------------------------------------------IF MED 5--------------------------------------------------------------------		
-	if ($med5 == "Vul hier uw medicijn in")
-        {
-            echo "test";
-        }else{
-		$querymedicijnid5 = "SELECT idMedicijn, voorraad FROM `medicijn` 
-                                      WHERE naam = '".$_POST["med5"]."'";
-
-		$resultmedicijnid5 = mysqli_query($connection, $querymedicijnid5);
-
-		$recordsmedicijnid5 = mysqli_fetch_all($resultmedicijnid5, MYSQLI_ASSOC);	
-		foreach($recordsmedicijnid5 as $recordsmedicijnid5){
-		
-		}
-		$aantal5 = $_POST["aantal5"];
-
-        $huidigevoorraad = $recordsmedicijnid5['voorraad'];
-
-        $nieuwevooraad = $huidigevoorraad - $aantal5;
-		$query5 = "INSERT INTO `orderregel`(`medicijnid`,
-										`orderid`,
-										`aantal`)
-
-			  VALUES 			  ('".$recordsmedicijnid5["idMedicijn"]."',
-                                   '".$recordsorderid['orderid']."',
-								   '".$_POST["aantal5"]."')";
-
-								   
-		$result5 = mysqli_query($connection, $query5);
-		
-		}
-	//------------------------------------------------IF MED 6--------------------------------------------------------------------
-	if ($med6 == "Vul hier uw medicijn in")
-        {
-            echo "test";
-        }else{
-		$querymedicijnid6 = "SELECT idMedicijn, voorraad FROM `medicijn` 
-                                      WHERE naam = '".$_POST["med6"]."'";
-
-		$resultmedicijnid6 = mysqli_query($connection, $querymedicijnid6);
-
-		$recordsmedicijnid6 = mysqli_fetch_all($resultmedicijnid6, MYSQLI_ASSOC); 	
-		foreach($recordsmedicijnid6 as $recordsmedicijnid6){
-       
-		}
-		$aantal6 = $_POST["aantal6"];
-
-        $huidigevoorraad = $recordsmedicijnid6['voorraad'];
-
-        $nieuwevooraad = $huidigevoorraad - $aantal6;
-		
-		$query6 = "INSERT INTO `orderregel`(`medicijnid`,
-										`orderid`,
-										`aantal`)
-
-			  VALUES 			  ('".$recordsmedicijnid6["idMedicijn"]."',
-                                   '".$recordsorderid['orderid']."',
-								   '".$_POST["aantal6"]."')";
-
-								   
-		$result6 = mysqli_query($connection, $query6);
-		
-		}
-    //------------------------------------------------IF MED 7--------------------------------------------------------------------
-    if ($med7 == "Vul hier uw medicijn in")
-        {
-            echo "test";
-        }else{
-		$querymedicijnid7 = "SELECT idMedicijn, voorraad FROM `medicijn` 
-                                      WHERE naam = '".$_POST["med7"]."'";
-
-		$resultmedicijnid7 = mysqli_query($connection, $querymedicijnid7);
-
-		$recordsmedicijnid7 = mysqli_fetch_all($resultmedicijnid7, MYSQLI_ASSOC); 
-		foreach($recordsmedicijnid7 as $recordsmedicijnid7){
-       
-		}
-		$aantal7 = $_POST["aantal7"];
-
-        $huidigevoorraad = $recordsmedicijnid7['voorraad'];
-
-        $nieuwevooraad = $huidigevoorraad - $aantal7;
-		
-		$query7 = "INSERT INTO `orderregel`(`medicijnid`,
-										`orderid`,
-										`aantal`)
-
-			  VALUES 			  ('".$recordsmedicijnid7["idMedicijn"]."',
-                                   '".$recordsorderid['orderid']."',
-								   '".$_POST["aantal7"]."')";
-		
-		$result7 = mysqli_query($connection, $query7);
-		}
-	//------------------------------------------------IF MED 8--------------------------------------------------------------------	
-	if ($med8 == "Vul hier uw medicijn in")
-        {
-            echo "test";
-        }else{
-		$querymedicijnid8 = "SELECT idMedicijn, voorraad FROM `medicijn` 
-                                      WHERE naam = '".$_POST["med8"]."'";
-
-		$resultmedicijnid8 = mysqli_query($connection, $querymedicijnid8);
-
-		$recordsmedicijnid8 = mysqli_fetch_all($resultmedicijnid8, MYSQLI_ASSOC); 
-		foreach($recordsmedicijnid8 as $recordsmedicijnid8){
-       
-		}
-		$aantal8 = $_POST["aantal8"];
-
-        $huidigevoorraad = $recordsmedicijnid8['voorraad'];
-
-        $nieuwevooraad = $huidigevoorraad - $aantal8;
-		
-		$query8 = "INSERT INTO `orderregel`(`medicijnid`,
-										`orderid`,
-										`aantal`)
-
-			  VALUES 			  ('".$recordsmedicijnid8["idMedicijn"]."',
-                                   '".$recordsorderid['orderid']."',
-								   '".$_POST["aantal8"]."')";
-
-								   
-		$result8 = mysqli_query($connection, $query8);
-		
-		
-		}
-	//------------------------------------------------IF MED 9--------------------------------------------------------------------
-    if ($med9 == "Vul hier uw medicijn in")
-        {
-            echo "test";
-        }else{
-		$querymedicijnid9 = "SELECT idMedicijn, voorraad FROM `medicijn` 
-                                      WHERE naam = '".$_POST["med9"]."'";
-
-		$resultmedicijnid9 = mysqli_query($connection, $querymedicijnid9);
-
-		$recordsmedicijnid9 = mysqli_fetch_all($resultmedicijnid9, MYSQLI_ASSOC);
-		foreach($recordsmedicijnid9 as $recordsmedicijnid9){
-       
-		}
-		$aantal9 = $_POST["aantal9"];
-
-        $huidigevoorraad = $recordsmedicijnid9['voorraad'];
-
-        $nieuwevooraad = $huidigevoorraad - $aantal9;
-		
-		$query9 = "INSERT INTO `orderregel`(`medicijnid`,
-										`orderid`,
-										`aantal`)
-
-			  VALUES 			  ('".$recordsmedicijnid9["idMedicijn"]."',
-                                   '".$recordsorderid['orderid']."',
-								   '".$_POST["aantal9"]."')";
-
-								   
-		$result9 = mysqli_query($connection, $query9);
-		}
-	//------------------------------------------------IF MED 10--------------------------------------------------------------------
-	if ($med10 == "Vul hier uw medicijn in")
-        {
-            echo "test";
-        }else{
-		$querymedicijnid10 = "SELECT idMedicijn, voorraad FROM `medicijn` 
-                                      WHERE naam = '".$_POST["med10"]."'";
-
-		$resultmedicijnid10 = mysqli_query($connection, $querymedicijnid10);
-
-		$recordsmedicijnid10 = mysqli_fetch_all($resultmedicijnid10, MYSQLI_ASSOC); 
-		foreach($recordsmedicijnid10 as $recordsmedicijnid10){
-       
-		}
-		$aantal10 = $_POST["aantal10"];
-
-        $huidigevoorraad = $recordsmedicijnid10['voorraad'];
-
-        $nieuwevooraad = $huidigevoorraad - $aantal10;
-		
-		$query10 = "INSERT INTO `orderregel`(`medicijnid`,
-										`orderid`,
-										`aantal`)
-
-			  VALUES 			  ('".$recordsmedicijnid10["idMedicijn"]."',
-                                   '".$recordsorderid['orderid']."',
-								   '".$_POST["aantal10"]."')";
-
-								   
-		$result10 = mysqli_query($connection, $query10);
-		}
-	
-
-	//------------------------------------------------LEVERDATUM EN LEVERTIJD--------------------------------------------------------------------
-	$leverdatum = "UPDATE `order`
-                    SET                 `leverdatum` = '".$_POST['leverdatum']."',
-                                        `levertijd` = '".$_POST['levertijd']."'
-                    WHERE                `idOrder` = '".$recordsorderid['orderid']."'"; 
+        insert_order($connection);
 
 
-    $resultlevering = mysqli_query($connection, $leverdatum);
 
-
-    
-    //var_dump($querynieuwevooraad);
-      
-//--------------------------------------------CONNECTIONQUERY-----------------------------------------------------------------
     mysqli_close($connection);
 ?>
 
@@ -432,7 +189,7 @@ $med10 = $_POST["med10"];
     
    
      
-    
+k    
 <br><
 </body>
 <br><br>

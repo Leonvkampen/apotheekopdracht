@@ -3,12 +3,6 @@
 
     include 'db_connect.php';
 
-    
-
-
-    var_dump($_POST);
-	include("db_connect.php");
-
     if ( empty($_POST["naam"]) )
 	{ 
 		echo "U heeft geen patient ingevult probeer het nogmaals";

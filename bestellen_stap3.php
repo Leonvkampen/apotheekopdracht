@@ -8,7 +8,8 @@
 
 	mysqli_close($connection);
 
-    $verzekeringsidd = $_SESSION["verzekeringsnummer"];
+    $verzekeringsnummer = $_GET['verzekeringsnummer'];
+    $_SESSION["verzekeringsnummer"] = $verzekeringsnummer;
 
 
 ?>
@@ -42,7 +43,7 @@
             while( $row = mysqli_fetch_assoc($result) )
 			{
                 //var_dump($row);
-				$option .= "<option>".$row["naam"]."</option>";
+				$option .= "<option value='".$row['idMedicijn']."'>".$row["naam"]."</option>";
 			} //exit;
 			
             ?>
@@ -57,7 +58,7 @@
             
             <p> Medicijn 2 & aantal</p>
             <select name="med2" type="med2">
-			<option value="">Vul hier uw medicijn in</option>
+			<option>Vul hier uw medicijn in</option>
                 <?php echo $option; ?>
            
               </select>
@@ -139,7 +140,7 @@
 
 		
 		<br><br><br>
-		<button type="submit" class="btn btn-danger" name="medicijnBestellen" id="medicijnBestellen" onClick="bestellen_stap3_parse.php">Bestellen</button>
+		<button type="submit" class="btn btn-danger" name="Bestellen" id="Bestellen" onClick="bestellen_stap3_parse.php">Bestellen</button>
       </form>
 	  </div>
   </div>

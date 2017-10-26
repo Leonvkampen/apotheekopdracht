@@ -4,7 +4,7 @@ session_start();
 include("db_connect.php");
  
 var_dump($_SESSION);
-$verzekeringsnummer = $_GET['verzekeringsnummer'];
+        $verzekeringsnummer = $_GET['verzekeringsnummer'];
 		$_SESSION["verzekeringsnummer"] = $verzekeringsnummer;
 
 //var_dump ($_SESSION); exit;
@@ -22,7 +22,7 @@ $verzekeringsnummer = $_GET['verzekeringsnummer'];
 </body>
 <?php
 
-    
+  /*  
 
     $query = "INSERT INTO `order`                (`huisartsid`,
 								                  `koerier`,
@@ -35,7 +35,7 @@ $verzekeringsnummer = $_GET['verzekeringsnummer'];
 								                 '1')";
 
     $result = mysqli_query($connection, $query);
-/*
+
     $queryorderid = "SELECT `idorder` FROM `order` 
                                       WHERE patient = '".$_GET['verzekeringsnummer']."'";
 
