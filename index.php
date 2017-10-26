@@ -10,12 +10,14 @@
 <body>
     
     <div>
+	<button onclick="location.href='./mobielehandleiding.php'" type="button" style="width: 250px;"  class="button" > Naar mobiele handleiding </button>
     <h1 style="text-align: center;">Apotheekteam 10</h1>
     </div>
     
     <div>
 	<br>
 	<p class="p" style="text-align: center;"> Welkom bij apotheek de Bonobo. </a>
+	
     </div>
 	<div style="text-align:center;">
 

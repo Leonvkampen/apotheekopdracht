@@ -2,7 +2,7 @@
 
 body
 {
-    background-color: white;
+    background-color: rgba(255, 210, 200,.5);
     border-style: solid;
     border-color: black;
 }
