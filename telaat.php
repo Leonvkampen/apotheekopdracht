@@ -11,6 +11,9 @@
     
     <p> Het is na 13:30. De medicijnen worden op het moment al bezorgt </p>
 <footer>
-    <?php include 'footer.php'; ?>
+    <?php include 'footer.php'; 
+	
+	
+	header('Location: klanthome.php');?>
 </footer>
 </html>
