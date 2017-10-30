@@ -14,8 +14,8 @@
 <html lang="en">
 <head>
 
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="datetimepicker/sample in bootstrap v2/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 </head>
 <body>
   
@@ -53,13 +53,13 @@
             <td>
                 <br><br>
             
-                        <input style="width: 101%" type="submit" id="button2" class="button_account" action="accountgegevens_wijzigen_ingelogd_klant.php" method="post"/>
+                        <input style="width: 101%" type="submit" id="button2" class="button button1" action="accountgegevens_wijzigen_ingelogd_klant.php" method="post"/>
            </td>
         </tr>
     
         <tr>
             <td>
- <button onclick="location.href='./klantgegevens.php'" type="button" style="width: 101%;"  class="button" > Terug </button>
+ <button onclick="location.href='./klantgegevens.php'" type="button" style="width: 101%;"  class="button button1" > Terug </button>
            </td>
         </tr>
     

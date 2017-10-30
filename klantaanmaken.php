@@ -2,13 +2,13 @@
 <html lang="en">
 <head style="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="css/style.css">
-
+<link rel="stylesheet" type="text/css" href="style.css">
+<link href="datetimepicker/sample in bootstrap v2/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 </head>
 
 
 <body>
-    
+    <?php  include 'navbar_apotheker.php'; ?>
     <div>
     <h1 style="text-align: center;">Maak hier uw patiënt aan</h1>
     </div>
@@ -43,7 +43,7 @@
         </tr>
         <tr>
             <td>
-            <div style="margin-top:30px;"><input type="submit" name="klantaanmaken" value="Patiënt Aanmaken"></div></td>
+            <div style="margin-top:30px;"><input type="submit" name="klantaanmaken" class="button button1" value="Patiënt Aanmaken"></div></td>
         </tr>
     </table>
 	</form>

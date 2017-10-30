@@ -39,9 +39,9 @@
 				echo "<tr>
 						<td>".$row["naam"]."</td>
 						<td>".$row["voorraad"]."</td>
-						<td>".$row["maximale voorraad"]."</td>
+						<td>".$row["maximalevoorraad"]."</td>
                         <td>
-							<a href='voorraadaanpassen_parse.php?medicijnid=".$row["idMedicijn"]."&maximalevoorraad=".$row["maximale voorraad"]."'/>
+							<a href='voorraadaanpassen_parse.php?medicijnid=".$row["idMedicijn"]."&maximalevoorraad=".$row["maximalevoorraad"]."'/>
 				            <img src='icons/drop.png' alt='Voorraad bijvullen'>
 							</a>
                         </td>

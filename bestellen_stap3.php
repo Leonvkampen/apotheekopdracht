@@ -24,6 +24,7 @@
 <html lang="en">
 <head style="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="style.css">
 <link href="datetimepicker/sample in bootstrap v2/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
   <link href="datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
   <script type="text/javascript" src="datetimepicker/sample in bootstrap v2/jquery/jquery-1.8.3.min.js" charset="UTF-8"></script>
@@ -43,7 +44,7 @@
 </script>
 
 <body>
-    
+    <?php include 'navbar.php'; ?>
     <div>
     <h1 style="text-align: center;">Huisarts bestellen</h1>
     </div>
@@ -178,7 +179,7 @@
                                         format: "yyyy-mm-dd hh:ii:00",
                                         locale: 'ru',
                                         autoclose: true,
-                                        hoursDisabled: '0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 21, 22, 23',
+                                        hoursDisabled: '0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,, 14, 21, 22, 23',
                                         minuteStep: 10
                                     });
                                 });
@@ -211,7 +212,7 @@
 		
 		-->
 		<br><br><br>
-		<button type="submit" class="btn btn-danger" name="medicijnBestellen" id="medicijnBestellen" onClick="bestellen_stap3_parse.php">Bestellen</button>
+		<button type="submit" class="btn btn-danger" name="medicijnBestellen" class="button button1" id="medicijnBestellen" onClick="bestellen_stap3_parse.php">Bestellen</button>
       </form>
 	  </div>
   </div>

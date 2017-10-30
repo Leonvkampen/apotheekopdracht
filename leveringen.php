@@ -14,7 +14,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <link   rel="stylesheet" type="text/css" href="css/style.css">
-
+<link href="datetimepicker/sample in bootstrap v2/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 
 </head>
 <body>
@@ -33,9 +33,8 @@
                 <th>Adres</th>
                 <th align="center">Postcode</th>
                 <th align="center">Niet thuis?</th>
-                <th>    
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Identiteitsbewijs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-			</tr>
+                <th>Identiteitsbewijs (BSN Nummer)</th>    
+                </tr>
 		<?php
 	       while( $row = mysqli_fetch_assoc($resultpatient) )
 			{
@@ -52,7 +51,7 @@
 				            <img src='icons/drop.png' alt='vervallen'>
 							</a>
                         </td>
-                        <td><br><br> </td>
+                        <td><input type=text </td>
                         
 					  </tr>";
 			}

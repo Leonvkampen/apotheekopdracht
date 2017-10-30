@@ -3,8 +3,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="datetimepicker/sample in bootstrap v2/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
 <body>
@@ -50,9 +50,9 @@
             <div>
         <br>
         <br>
-	 	<button onclick="location.href='./klantgevensaanpassen.php'" type="button" style="width: 250px;"  class="button" > Klant gegevens aanpassen </button>
+	 	<button onclick="location.href='./klantgevensaanpassen.php'" type="button" style="width: 250px;"  class="button button1" > Klant gegevens aanpassen </button>
                 <br>
-                <button onclick="location.href='./klanthome.php'" type="button" style="width: 250px;"  class="button" > Terug naar home </button>
+                <button onclick="location.href='./klanthome.php'" type="button" style="width: 250px;"  class="button button1" > Terug naar home </button>
         <br>
 	</div>
             </td>

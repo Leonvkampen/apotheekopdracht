@@ -9,13 +9,14 @@ session_start();
 <html lang="en">
 <head style="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+<link href="datetimepicker/sample in bootstrap v2/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 
 </head>
 
 
 <body>
-    
+    <?php include 'navbar_apotheker.php'; ?>
     <div>
     <h1 style="text-align: center;">Apothekerhome</h1>
     </div>
@@ -23,10 +24,13 @@ session_start();
     </div>
 	<div style="text-align:center;">
 
-	 	<button onclick="location.href='./voorraadaanpassen.php'" type="button" style="width: 250px;"  class="button" > Voorraad aanpassen </button>
+	 	<button onclick="location.href='./voorraadaanpassen.php'" type="button" style="width: 250px;"  class="button button1" > Voorraad aanpassen </button>
         <br>
         <br>
-        <button onclick="location.href='./leveringenkoerier.php'" type="button" style="width: 250px;"  class="button" > Bestelling overzien </button>
+        <button onclick="location.href='./leveringenkoerier.php'" type="button" style="width: 250px;"  class="button button1" > Bestelling overzien </button>
+		<br>
+        <br>
+        <button onclick="location.href='./medicatie.php'" type="button" style="width: 250px;"  class="button button1" > Medicatie </button>
 	</div>
 </body>
 <br><br><br>

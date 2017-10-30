@@ -27,7 +27,7 @@ var_dump($querypatientnaam);
 
 
 
-	$queryorderid = "SELECT o.idOrder, o.levertijd
+	$queryorderid = "SELECT o.idOrder, o.levertijd, o.leverdatum
 					 FROM `order` as o, `patient` as p 
 					 WHERE p.Verzekeringsnummer = '".$verzekeringsnummer."' and p.Verzekeringsnummer = o.patient";
 					 
@@ -51,7 +51,7 @@ else
 
 <!DOCTYPE html>
 <html lang="en">
-<link   rel="stylesheet" type="text/css" href="css/style.css">
+<link   rel="stylesheet" type="text/css" href="style.css">
 
 
 </head>
@@ -68,6 +68,7 @@ else
 				<th>Verzkeringsnummer</th>
                 <th>Naam</th>
                 <th>levertijd</th>
+                <th>leverdatum</th>
                 
 			</tr>
 <?php
@@ -78,8 +79,9 @@ else
 						<td>".$verzekeringsnummer."</td>
 						<td>".$patientnaam."</td>
 						<td>".$row["levertijd"]."</td>
+						<td>".$row["leverdatum"]."</td>
 						<td>
-							<a href='leveringstijdveranderen2.php?levertijd=".$row["levertijd"]."&orderid=".$row["idOrder"]."'/>
+							<a href='leveringstijdveranderen2.php?levertijd=".$row["levertijd"]."&leverdatum=".$row["leverdatum"]."&orderid=".$row["idOrder"]."'/>
 				            <img src='icons/drop.png' alt='levertijd aanpassen'>
 							</a>
                         </td>

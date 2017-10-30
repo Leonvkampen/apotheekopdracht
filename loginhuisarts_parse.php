@@ -33,7 +33,7 @@
 	
 			$record_user = mysqli_fetch_assoc($result_patient);
 			var_dump($record_user);
-			$_SESSION["Email"] = $record_user["Email"];
+			$_SESSION["email"] = $record_user["email"];
             $_SESSION["huisartsid"] = $record_user["huisartsid"];
             $_SESSION["telefoonnummer"] = $record_user["telefoonnummer"];
             $_SESSION["woonplaats"] = $record_user["woonplaats"];

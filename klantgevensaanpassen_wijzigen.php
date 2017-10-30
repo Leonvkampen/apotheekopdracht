@@ -57,6 +57,7 @@
 	}
 ?>
 <html>
+<link href="datetimepicker/sample in bootstrap v2/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 	<br><br><br>
 <footer>
 <?php include 'footer.php'; ?>

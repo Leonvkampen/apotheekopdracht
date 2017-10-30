@@ -109,6 +109,8 @@ var_dump($recordmedicijnen);
 										   WHERE `idMedicijn` = '$val'";
 					
 					$resultnieuwevooraad = mysqli_query($connection, $querynieuwevooraad);
+					
+					
 				}
 			}
 		}
