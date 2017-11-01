@@ -7,11 +7,11 @@
 	$result = mysqli_query($connection, $query);
 
 
-<<<<<<< HEAD
+
     $verzekeringsnummer = $_GET['verzekeringsnummer'];
     $_SESSION["verzekeringsnummer"] = $verzekeringsnummer;
 
-=======
+
     $verzekeringsidd = $_SESSION["verzekeringsnummer"];
 	
 	date_default_timezone_set("Europe/Amsterdam");
@@ -23,8 +23,6 @@
 	$order = "SELECT * FROM `order`";
 	
 	$result = mysqli_query($connection, $query);
->>>>>>> 658437b907d9414fc9d44a34b8216ef2c5a0eb73
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
