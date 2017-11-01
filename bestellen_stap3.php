@@ -7,6 +7,11 @@
 	$result = mysqli_query($connection, $query);
 
 
+
+    $verzekeringsnummer = $_GET['verzekeringsnummer'];
+    $_SESSION["verzekeringsnummer"] = $verzekeringsnummer;
+
+
     $verzekeringsidd = $_SESSION["verzekeringsnummer"];
 	
 	date_default_timezone_set("Europe/Amsterdam");
@@ -18,6 +23,7 @@
 	$order = "SELECT * FROM `order`";
 	
 	$result = mysqli_query($connection, $query);
+
 
 ?>
 <!DOCTYPE html>
@@ -212,8 +218,10 @@
 		
 		-->
 		<br><br><br>
+
 		<button type="submit" class="btn btn-danger" name="medicijnBestellen" class="button button1" id="medicijnBestellen" onClick="bestellen_stap3_parse.php">Bestellen</button>
-      </form>
+
+    </form>
 	  </div>
   </div>
  <!--</table>-->
