@@ -33,7 +33,10 @@
                 <th>Adres</th>
                 <th align="center">Postcode</th>
                 <th align="center">Niet thuis?</th>
-                <th>Identiteitsbewijs (BSN Nummer)</th>    
+                <th>Identiteitsbewijs (BSN Nummer)</th>   
+				
+				<th>Commentaar</th>
+				
                 </tr>
 		<?php
 	       while( $row = mysqli_fetch_assoc($resultpatient) )
@@ -52,7 +55,9 @@
 							</a>
                         </td>
                         <td><input type=text </td>
-                        
+						<form>
+						 <td><input type=text </td>
+                        </form>
 					  </tr>";
 			}
 			
