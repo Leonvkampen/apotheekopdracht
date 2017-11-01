@@ -3,7 +3,7 @@
     include 'db_connect.php';
 
 
-	$querypatient = "SELECT o.idOrder, p.verzekeringsnummer, p.Naam, p.adres, p.postcode, o.leverdatum, o.levertijd, p.email FROM `order` as o, `patient` as p 
+	$querypatient = "SELECT o.idOrder, p.verzekeringsnummer, p.Naam, p.adres, p.postcode, o.leverdatum, o.levertijd, p.email, o.commentaar FROM `order` as o, `patient` as p 
                      WHERE p.verzekeringsnummer = o.patient";
 
     $resultpatient = mysqli_query($connection, $querypatient);
@@ -55,9 +55,13 @@
 							</a>
                         </td>
                         <td><input type=text </td>
-						<form>
-						 <td><input type=text </td>
-                        </form>
+						
+						<form id='commentaar' method='post' action='commentaar.php' ;>
+						<td>
+						 <input type='text' name='commentaar' id='commentaar' placeholder='bul hier uw commentaar in' value=".$row["commentaar"]."/>
+						<button type='submit' class='button button1' name='commentaarsturen' id='commentaarsturen' onClick='commentaar.php'>commentaar versturen</button>
+						</td>
+						</form>
 					  </tr>";
 			}
 			
