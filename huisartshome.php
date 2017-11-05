@@ -13,6 +13,10 @@
 
 <body>
     <?php include 'navbar_huisarts.php'; ?>
+	<button onclick="location.href='./index.php'" type="button" style="width: 250px; float:right;"  class="button button1" > Loguit </button>
+	<Br>
+	<br>
+	<br>
     <div>
     <h1 style="text-align: center;">Huisartshome</h1>
     </div>
@@ -24,6 +28,9 @@
         <br>
         <br>
         <button onclick="location.href='./bestellen_stap1.php'" type="button" style="width: 250px;"  class="button button1" > Bestelling plaatsen </button>
+		<br>
+        <br>
+        <button onclick="location.href='./commentarenklant.php'" type="button" style="width: 250px;"  class="button button1" > commentaren </button>
 	</div>
 </body>
 <br><br><br>

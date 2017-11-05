@@ -11,10 +11,10 @@ function insert_order($val, $arr, $bool = false) {
 }*/
 
 //var_dump ($_SESSION); 
-/*
+
 $aantalmedicijnen = "SELECT voorraad FROM `medicijn` WHERE naam = '".$_POST["med1"]."'";
 
-<<<<<<< HEAD
+
 	if ( 
         !isset($_POST["leverdatum"]) || trim($_POST["leverdatum"]) == '' OR
         !isset($_POST["levertijd"]) || trim($_POST["levertijd"]) == '')
@@ -30,9 +30,16 @@ $aantalmedicijnen = "SELECT voorraad FROM `medicijn` WHERE naam = '".$_POST["med
 		//var_dump($_POST); 
 
 
+
+        $datetime = $_POST['leverdata'];
+								
+								$date = date('Y-m-d', strtotime($datetime));
+								$time = date('G:i:00', strtotime($datetime));
+
+
 	//------------------------------------------------MED POSTS--------------------------------------------------------------------
 
-        function insert_order($connection, $second = false) {
+        function insert_order($connection, $second = false, $date, $time) {
         
             if ($second == false) {
                 
@@ -45,8 +52,8 @@ $aantalmedicijnen = "SELECT voorraad FROM `medicijn` WHERE naam = '".$_POST["med
 								                  `Apotheek`,
                                                   `geannuleerd`)
 
-			  VALUES 			                 ('".$_POST['leverdatum']."',
-                                                  '".$_POST['levertijd']."',
+			  VALUES 			                 ('".$date."',
+												 '".$time."',
                                                   '".$_SESSION['huisartsid']."',
 								                 '1',
 												 '".$_SESSION['verzekeringsnummer']."',
@@ -60,7 +67,7 @@ $aantalmedicijnen = "SELECT voorraad FROM `medicijn` WHERE naam = '".$_POST["med
             insert_orderline($orderId, $connection);
                
                 
-                } else {
+                } elseif ($second = true) {
                 
                 
                 
@@ -72,8 +79,8 @@ $aantalmedicijnen = "SELECT voorraad FROM `medicijn` WHERE naam = '".$_POST["med
 								                  `Apotheek`,
                                                   `geannuleerd`)
 
-			  VALUES 			                 ('".$_POST['leverdatum']."',
-                                                  '".$_POST['levertijd']."',
+			  VALUES 			                 ('".$date."',
+												 '".$time."',
                                                   '".$_SESSION['huisartsid']."',
 								                 '1',
 												 '".$_SESSION['verzekeringsnummer']."',
@@ -83,7 +90,7 @@ $aantalmedicijnen = "SELECT voorraad FROM `medicijn` WHERE naam = '".$_POST["med
             mysqli_query($connection, $query);
             
             $orderIdSecond = mysqli_insert_id($connection);
-                insert_orderline($orderIdSecond, $connection, true);
+                insert_orderline($orderIdSecond, $connection,$date, $time, true);
                //var_dump($orderIdSecond, $connection, true); 
             }
             
@@ -100,32 +107,36 @@ $aantalmedicijnen = "SELECT voorraad FROM `medicijn` WHERE naam = '".$_POST["med
                     $aantalKey = str_replace('med', 'aantal', $key) ;
                         
                                 //queries
-                       
-                    $querymedicijnid = "SELECT voorraad FROM `medicijn` 
-                                                          WHERE idMedicijn = '$val'";
-                    $resultmedicijnid = mysqli_query($connection, $querymedicijnid);
-
-                    $recordsmedicijnid = mysqli_fetch_all($resultmedicijnid, MYSQLI_ASSOC);
-                        
-                          // var_dump($recordsmedicijnid);
+                 	$querymedicijnid = "SELECT voorraad FROM `medicijn`
+														WHERE idMedicijn = '$val'";
+														
+					$resultmedicijnid = mysqli_query($connection, $querymedicijnid);
+					
+					$recordmedicijnid = mysqli_fetch_all($resultmedicijnid, MYSQLI_ASSOC);
+					
+					//var_dump($recordmedicijnid[0]['voorraad']);
                     
                     if  ($_POST[$key] == "Vul hier uw medicijn in")
                     {
                         
                         
-                    }elseif ($third == false || $recordsmedicijnid[0]['voorraad'] < '5' )
+                    }elseif ($recordmedicijnid[0]['voorraad'] < '5' )
                     {
                         
                     echo "Dit medicijn is niet in voorraadrd";
                         
-                        insert_order($connection, true);
+                       // insert_order($connection, true);
                         
                     } elseif ($third == true) {
                         echo "Dtestsetsetestestests";
                     }
                     else{
+                        
+                    
+                    var_dump($_POST[$aantalKey]);
+                    
 
-                    $huidigevoorraad = $recordsmedicijnid[0]['voorraad'];
+                    $huidigevoorraad = $recordmedicijnid[0]['voorraad'];
 
                     $nieuwevooraad = $huidigevoorraad - $_POST[$aantalKey];
 
@@ -155,11 +166,11 @@ $aantalmedicijnen = "SELECT voorraad FROM `medicijn` WHERE naam = '".$_POST["med
             }
         }
 
-        insert_order($connection);
+        insert_order($connection, false, $date, $time);
 
 
+/*
 
-=======
 $resultmedicijnen = mysqli_query($connection, $aantalmedicijnen);
 
 $recordmedicijnen = mysqli_fetch_all($resultmedicijnen, MYSQLI_ASSOC); 
@@ -168,7 +179,7 @@ foreach($recordmedicijnen as $recordmedicijnen){
 }
 
 var_dump($recordmedicijnen); 
-*/
+
 
 						
 								$datetime = $_POST['leverdata'];
@@ -261,13 +272,11 @@ var_dump($recordmedicijnen);
 										   WHERE `idMedicijn` = '$val'";
 					
 					$resultnieuwevooraad = mysqli_query($connection, $querynieuwevooraad);
-					
-					
 				}
 			}
 		}
 	}
-	insert_order($connection, $date, $time);
+	insert_order($connection, $date, $time);*/
 	
 	
 	
@@ -289,7 +298,7 @@ var_dump($recordmedicijnen);
        <h1 style="text-align: center;">Uw bestelling is geplaatst </h1>
   
 <?php
-    
+    exit;
  header("refresh:2; url=huisartshome.php");
 
 
@@ -298,7 +307,7 @@ var_dump($recordmedicijnen);
     
    
      
-   
+  
 <br>
 </body>
 <br><br>

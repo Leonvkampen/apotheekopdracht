@@ -13,7 +13,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<link   rel="stylesheet" type="text/css" href="css/style.css">
+<link   rel="stylesheet" type="text/css" href="style.css">
 <link href="datetimepicker/sample in bootstrap v2/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 
 </head>
@@ -55,12 +55,14 @@
 							</a>
                         </td>
                         <td><input type=text </td>
-						
+						<br><br>
 						<form id='commentaar' method='post' action='commentaar.php' ;>
 						<td>
-						 <input type='text' name='commentaar' id='commentaar' placeholder='bul hier uw commentaar in' value=".$row["commentaar"]."/>
-						<button type='submit' class='button button1' name='commentaarsturen' id='commentaarsturen' onClick='commentaar.php'>commentaar versturen</button>
-						</td>
+						 <input type='text' name='commentaar' id='commentaar' placeholder='vul hier uw commentaar in' value=".$row["commentaar"].">
+						 <input type='hidden' name='idOrder' id='idOrder' value=".$row["idOrder"].">
+						 <input type='hidden' name='naam' id='naam' value=".$row["Naam"].">
+						
+						<button type='submit' name='commentaarsturen' id='commentaarsturen' class='button button1' onClick='commentaar.php'>Commentaar versturen</button>
 						</form>
 					  </tr>";
 			}
@@ -75,7 +77,7 @@
     <div style="text-align:center;">
 
      <br>
-     <button onclick="location.href='./koerierhome.php'" type="button" style="width: 20%;"  class="button"  > Terug </button>
+     <button onclick="location.href='./koerierhome.php'" type="button" style="width: 20%;"  class="button button1"  > Terug </button>
      <br>
     </div>
 

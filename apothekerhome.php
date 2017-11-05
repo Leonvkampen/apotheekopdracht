@@ -17,6 +17,10 @@ session_start();
 
 <body>
     <?php include 'navbar_apotheker.php'; ?>
+	<button onclick="location.href='./index.php'" type="button" style="width: 250px; float:right;"  class="button button1" > Loguit </button>
+	<Br>
+	<br>
+	<br>
     <div>
     <h1 style="text-align: center;">Apothekerhome</h1>
     </div>
@@ -31,6 +35,9 @@ session_start();
 		<br>
         <br>
         <button onclick="location.href='./medicatie.php'" type="button" style="width: 250px;"  class="button button1" > Medicatie </button>
+		<br>
+        <br>
+		<button onclick="location.href='./commentarenklantapotheker.php'" type="button" style="width: 250px;"  class="button button1" > commentaren </button>
 	</div>
 </body>
 <br><br><br>
