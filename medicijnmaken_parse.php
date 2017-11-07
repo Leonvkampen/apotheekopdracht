@@ -21,14 +21,16 @@
 	$query = "INSERT INTO `medicijn` (`naam`,
 								   `beschrijving`,
 								   `voorraad`,
-								   `maximalevoorraad`)
+                                   `maximalevoorraad`,
+								   `ophalen`)
 
 			  VALUES 			  ('".$_POST["naam"]."',
 								   '".$_POST["omschrijving"]."',
 								   '".$_POST["aantal"]."',
-								   '".$_POST["maximaleaantal"]."')";
+                                   '".$_POST["maximaleaantal"]."',
+								   '".$_POST["ophalen"]."')";
 
-	var_Dump($query);
+	//var_Dump($query);
 	echo "Het medicijn is aangemaakt!";
 	$result = mysqli_query($connection, $query);
 	header("refresh:2; url=apothekerhome.php");

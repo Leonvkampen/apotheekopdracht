@@ -33,6 +33,11 @@
             <td>Medicatie Maximale aantal<br></td></tr>
               <tr><td><input type="maximaleaantal" name="maximaleaantal"></td>
         </tr>
+         <td>ophalen <div>	
+                 <input style="width: 100%" type="hidden" class="form-control" name="ophalen" id="ophalen"  placeholder="ophalen" value="nee" />
+						<input style="width: 100%" type="checkbox" class="form-control" name="ophalen" id="ophalen"  placeholder="ophalen" value="ja" />
+               
+			</td>
         <tr>
             <td>
             <div style="margin-top:30px;"><input type="submit" name="medicijnmaken" value="Medicijn Aanmaken" class="button button1"></div></td>

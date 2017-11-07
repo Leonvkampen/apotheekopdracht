@@ -2,11 +2,10 @@
 	session_start();
     include 'db_connect.php';
 	
-	$querymedicijn = "SELECT m.naam, ro.orderid, ro.aantal FROM `medicijn` as m, `orderregel` as ro WHERE ro.orderid = '".$_GET['idOrder']."' and ro.medicijnid = m.idMedicijn";
+	$querymedicijn = "SELECT m.naam, ro.orderid, ro.aantal, m.ophalen FROM `medicijn` as m, `orderregel` as ro WHERE ro.orderid = '".$_GET['idOrder']."' and ro.medicijnid = m.idMedicijn";
 	
 	$resultmedicijn = mysqli_query($connection, $querymedicijn);
 	
-	//var_dump($querymedicijn);
 
 ?>
 
@@ -27,6 +26,7 @@
 				<th>orderID</th>
                 <th>Medicijnen naam</th>
                 <th>aantal</th>
+                <th>ophalen</th>
                 
 			</tr>
 		<?php
@@ -36,12 +36,13 @@
 						<td><br>".$_GET["idOrder"]."</td>
 						<td><br>".$row["naam"]."</td>
 						<td><br>".$row["aantal"]."</td>
+                        <td><br>".$row["ophalen"]."</td>
                         
                   
                         
 					  </tr>";
 			}
-			
+		
     
         
     mysqli_close($connection);

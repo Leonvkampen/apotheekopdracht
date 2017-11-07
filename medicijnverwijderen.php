@@ -8,7 +8,6 @@
     $resultmedicijn = mysqli_query($connection, $querymedicijn);
 	
 
-var_dump($querymedicijn);
 	
 ?>
 

@@ -3,7 +3,7 @@
     include 'db_connect.php';
 
 
-	$querymedicijn = "SELECT idMedicijn, naam, beschrijving, voorraad, maximalevoorraad FROM `medicijn`";
+	$querymedicijn = "SELECT * FROM `medicijn`";
 
     $resultmedicijn = mysqli_query($connection, $querymedicijn);
 	
@@ -30,7 +30,7 @@
 				<th>Medicatie Beschrijving</th>
                 <th>Medicatie Voorraad</th>
                 <th>Medicatie Maximale Voorraad</th>
-                
+                <th>Ophalen</th>
 			</tr>
 		<?php
 	       while( $row = mysqli_fetch_assoc($resultmedicijn) )
@@ -40,8 +40,9 @@
 						<td>".$row["beschrijving"]."</td>
 						<td>".$row["voorraad"]."</td>
                         <td>".$row["maximalevoorraad"]."</td>
+                        <td>".$row["ophalen"]."</td>
                         <td>
-							<a href='medicijnaanpassen2.php?&medicijnid=".$row["idMedicijn"]."naam=".$row["naam"]."&beschrijving=".$row["beschrijving"]."&voorraad=".$row["voorraad"]."&maximalevoorraad=".$row["maximalevoorraad"]."'/>
+							<a href='medicijnaanpassen2.php?idMedicijn=".$row["idMedicijn"]."'/>
 				            <img src='icons/drop.png' alt='Medicijn aanpassen'>
 							</a>
                         </td>

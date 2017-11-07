@@ -2,11 +2,13 @@
     
     include 'db_connect.php';
 
-    $query = "SELECT * FROM `medicijn`";
+    $query = "SELECT * FROM `medicijn` where idMedicijn = '".$_GET["idMedicijn"]."'";
 
     $result = mysqli_query($connection, $query);
 
-    $row = mysqli_fetch_assoc($result);
+    $record = mysqli_fetch_assoc($result);
+
+//var_dump($record)
 ?>
 
 
@@ -25,25 +27,31 @@
 <form class="table" method="post" style="margin-left: 22%;" action="medicijnaanpassen_parse.php">
     <table style="margin-left: 22%;">
             <tr>
-				<input style="width: 100%" type="hidden" class="form-control" name="medicijnid" id="medicijnid" value="<?= $row["idMedicijn"] ?>"/>
+				<input style="width: 100%" type="hidden" class="form-control" name="medicijnid" id="medicijnid" value="<?= $record["idMedicijn"] ?>"/>
                 <td>Medicijn naam:			
-                        <input style="width: 100%" type="text" class="form-control" name="naam" id="naam"  placeholder="Vul een naam in" value="<?= $row["naam"] ?>"/>
+                        <input style="width: 100%" type="text" class="form-control" name="naam" id="naam"  placeholder="Vul een naam in" value="<?= $record["naam"] ?>"/>
                 </td>
             </tr>
         
           <tr>
             <td>Medicatie Beschrijving:				
-						<input style="width: 100%" type="text" class="form-control" name="beschrijving" id="beschrijving"  placeholder="Vul uw beschrijving in" value="<?= $row["beschrijving"] ?>"/>
+						<input style="width: 100%" type="text" class="form-control" name="beschrijving" id="beschrijving"  placeholder="Vul uw beschrijving in" value="<?= $record["beschrijving"] ?>"/>
 			</td></tr>
         </tr>
           <tr>
             <td>Medicatie Voorraad:				
-						<input style="width: 100%" type="text" class="form-control" name="voorraad" id="voorraad"  placeholder="Vul uw voorraad in" value="<?= $row["voorraad"] ?>"/>
+						<input style="width: 100%" type="text" class="form-control" name="voorraad" id="voorraad"  placeholder="Vul uw voorraad in" value="<?= $record["voorraad"] ?>"/>
 			</td></tr>
         </tr>
           <tr>
             <td>Medicijn Maximale Aantal: <div>				
-						<input style="width: 100%" type="text" class="form-control" name="maximalevoorraad" id="maximalevoorraad"  placeholder="Vul uw maximale voorraad in" value="<?= $row["maximalevoorraad"] ?>" />
+						<input style="width: 100%" type="text" class="form-control" name="maximalevoorraad" id="maximalevoorraad"  placeholder="Vul uw maximale voorraad in" value="<?= $record["maximalevoorraad"] ?>" />
+			</td></tr>
+        <tr>
+            <td>ophalen <div>	
+                 <input style="width: 100%" type="hidden" class="form-control" name="ophalen" id="ophalen"  placeholder="ophalen" value="nee" />
+						<input style="width: 100%" type="checkbox" class="form-control" name="ophalen" id="ophalen"  placeholder="ophalen" value="ja" />
+               
 			</td></tr>
         <tr>
             <td>

@@ -1,6 +1,7 @@
 <?php
     session_start();
-	
+	//var_dump ($_POST);
+    
 
 	//var_dump($_POST);
 	include("db_connect.php");
@@ -19,7 +20,8 @@
 	          SET                  `naam` = '".$_POST['naam']."',
 								   `beschrijving` = '".$_POST['beschrijving']."',
 								   `voorraad` = '".$_POST['voorraad']."',
-								   `maximalevoorraad` = '".$_POST['maximalevoorraad']."'
+                                   `maximalevoorraad` = '".$_POST['maximalevoorraad']."',
+								   `ophalen` = '".$_POST['ophalen']."'
 			  WHERE				   `idMedicijn` = '".$_POST['medicijnid']."'"; 
 
     //var_dump($query);
@@ -29,7 +31,7 @@
 	if ( $result )
 	{
 		echo "<font color='red' font size='50px'>Uw gegevens zijn succesvol gewijzigt. U wordt doorgestuurd naar uw accountpagina.</font>";
-		header("refresh:6; url=apothekerhome.php");
+		header("refresh:2; url=apothekerhome.php");
 	}
 	
 	else
@@ -37,6 +39,7 @@
 		echo "<font color='red' font size='100px'>Er is iets fout gegaan.</font>";
 		header("url=medicijnaanpassen2.php");
 	}
+//var_dump ($query);
 ?>
 <html>
 <link rel="stylesheet" type="text/css" href="style.css">
