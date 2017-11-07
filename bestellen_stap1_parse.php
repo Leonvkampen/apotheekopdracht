@@ -27,14 +27,6 @@
 		$result = mysqli_query($connection, $query);
         
         
-        
- 
-        
-    
-    
- 
-
-    
 	mysqli_close($connection);
 
 ?>
@@ -55,18 +47,13 @@
 						<td>".$row["Verzekeringsnummer"]."</td>
 						<td>".$row["Naam"]."</td>
                         <td>
-							<a href='bestellen_stap2_orderaanmaken.php?verzekeringsnummer=".$row["Verzekeringsnummer"]."'/>
+							<a href='bestellen_stap3.php?verzekeringsnummer=".$row["Verzekeringsnummer"]."'/>
 				            <img src='icons/drop.png' alt='Receptaanmaken'>
 							</a>
                         </td>
                         
 					  </tr>";
 			}
-			
-    
-        8845545
-    
-    
 		?>
 </table>   
     

@@ -307,8 +307,13 @@ var_dump($recordmedicijnen);
     
    
      
+<<<<<<< HEAD
   
 <br>
+=======
+k    
+<br><
+>>>>>>> a72cf39aded9a4888187b7547f8b60767366339a
 </body>
 <br><br>
 <footer>

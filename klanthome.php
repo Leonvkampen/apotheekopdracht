@@ -48,9 +48,17 @@ echo $date;
     </div>
 	<div style="text-align:center;">
 
+<<<<<<< HEAD
 
 	 	<button onclick="location.href='./klantgegevens.php'" type="button" style="width: 250px;"  class="button button1" > Klantgegevens </button>
 
+=======
+	 	<button onclick="location.href='./klantgegevens.php'" type="button" style="width: 250px;"  class="button" > Klantgegevens </button>
+        <br>
+        <br>
+        <button onclick="location.href='./leveringstijdveranderen_doorstuur.php'" type="button" style="width: 250px;"  class="button" > Leveringstijd veranderen </button>
+        <br>
+>>>>>>> a72cf39aded9a4888187b7547f8b60767366339a
         <br>
         <br>
         <button onclick="location.href='./leveringstijdveranderen_doorstuur.php'" type="button" style="width: 250px;"  class="button button1" > Leveringstijd veranderen </button>
