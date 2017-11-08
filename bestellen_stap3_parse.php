@@ -3,14 +3,7 @@ ob_start();
 session_start();
 
 include("db_connect.php");
-//var_dump($_SESSION);
-/*insert_order($val, $arr);
 
-function insert_order($val, $arr, $bool = false) {
-    insert_order();
-}*/
-
-//var_dump ($_SESSION); 
 
 $aantalmedicijnen = "SELECT voorraad FROM `medicijn` WHERE naam = '".$_POST["med1"]."'";
 
@@ -35,7 +28,7 @@ $aantalmedicijnen = "SELECT voorraad FROM `medicijn` WHERE naam = '".$_POST["med
 								
 								$date = date('Y-m-d', strtotime($datetime));
 								$time = date('G:i:00', strtotime($datetime));
-
+		$nextday = date('Y-m-d',strtotime($date . "+1 days"));
 
 
         function insert_order($connection, $second = false, $date, $time) {
@@ -117,26 +110,13 @@ $aantalmedicijnen = "SELECT voorraad FROM `medicijn` WHERE naam = '".$_POST["med
                     
                     if  ($_POST[$key] == "Vul hier uw medicijn in")
                     {
+                        echo "1-";
                         
-                        
-                    }if ($second == false || $recordmedicijnid[0]['voorraad'] < '5' )
+                    }else if ($second == false )
                     {
-                        
-                    echo "Dit medicijn is niet in voorraadrd";
-                        
-                        var_dump($second);
-                        
-                       insert_order($connection, true, $date, $time);
-                        
-                    } elseif ($second == true) {
-                        echo "Dtestsetsetestestests";
-                    }
-                    else{
-                        
+					var_dump($_POST[$aantalKey]);
                     
-                    var_dump($_POST[$aantalKey]);
-                    
-
+echo "1-";
                     $huidigevoorraad = $recordmedicijnid[0]['voorraad'];
 
                     $nieuwevooraad = $huidigevoorraad - $_POST[$aantalKey];
@@ -160,13 +140,29 @@ $aantalmedicijnen = "SELECT voorraad FROM `medicijn` WHERE naam = '".$_POST["med
 
 
                     $resultnieuwevooraad = mysqli_query($connection, $querynieuwevooraad);
+					
+                    if( $recordmedicijnid[0]['voorraad'] < '5' ){
+							   echo "Dit medicijn is niet in voorraadrd";
+                        
+                    var_dump($second);
+                        
+                    insert_order($connection, true, $date, $time);
+							
+					}
+                 
+                        
+                    
+                    else{
+                        
+                    echo "test";
+
 
                     }
 
                 }
             }
         }
-
+        }
         insert_order($connection, false, $date, $time);
 
 
@@ -201,13 +197,11 @@ $aantalmedicijnen = "SELECT voorraad FROM `medicijn` WHERE naam = '".$_POST["med
     
    
      
-<<<<<<< HEAD
+
   
+<br>   
 <br>
-=======
-k    
-<br><
->>>>>>> a72cf39aded9a4888187b7547f8b60767366339a
+
 </body>
 <br><br>
 <footer>

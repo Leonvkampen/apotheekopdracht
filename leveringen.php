@@ -18,12 +18,12 @@
 
 </head>
 <body>
-
+	<?php include 'navbar_koerier.php';?>
     
        <h1 style="text-align: center;">Leveringen</h1>
   
 
-<table width="300" border="1" cellpadding="1" cellspacing="1" align="center"  >
+<table style="border:2px solid black;"width="300" border="1" cellpadding="1" cellspacing="1" align="center"  >
 <tr>
 				<th>orderID</th>
 				<th>Verzkeringsnummer</th>
@@ -51,7 +51,7 @@
                         <td>".$row["postcode"]."</td>
 						<td>
 							<a href='emailnietthuis.php?email=".$row["email"]."&naam=".$row["Naam"]."&orderid=".$row["idOrder"]."'/>
-				            <img src='icons/drop.png' alt='vervallen'>
+				            <img src='.icon-pencil' alt='vervallen'>
 							</a>
                         </td>
                         <td><input type=text </td>

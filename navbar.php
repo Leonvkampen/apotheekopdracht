@@ -43,6 +43,5 @@ li a:hover:not(.active) {
 <ul>
   <li><a class="active" href="index.php">Home</a></li>
   <li><a href="mobielehandleiding.php">Mobiele Handleiding</a></li>
-  <li><a href="#contact">Contact</a></li>
-  <li style="float:right"><a href="#about">About</a></li>
+  <li style="float:right"><a href=""></a></li>
 </ul>

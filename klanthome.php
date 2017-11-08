@@ -7,7 +7,7 @@
 
 $timezone = date_default_timezone_set('Europe/Amsterdam');
 $date = date('H:i:s');
-
+/*
 if ($date < '12:28:00' )
 {
 	echo "Hello";
@@ -18,7 +18,7 @@ else
 }
 
 echo $date;
-
+*/
 
 
 ?>
@@ -35,30 +35,24 @@ echo $date;
 
 
 <body>
+	<?php include 'navbar.php'; ?>
+	<br>
     <div>
 		<button onclick="location.href='./index.php'" type="button" style="width: 250px; float:right;"  class="button button1" > Uitloggen </button>
 		<br>
 		<br>
 	</div>
     <div>
-	
+	<br>
     <h1 class="h1" style="margin-left:20px;">Klanthome</h1>
     </div>
 	<br>
     </div>
 	<div style="text-align:center;">
 
-<<<<<<< HEAD
+
 
 	 	<button onclick="location.href='./klantgegevens.php'" type="button" style="width: 250px;"  class="button button1" > Klantgegevens </button>
-
-=======
-	 	<button onclick="location.href='./klantgegevens.php'" type="button" style="width: 250px;"  class="button" > Klantgegevens </button>
-        <br>
-        <br>
-        <button onclick="location.href='./leveringstijdveranderen_doorstuur.php'" type="button" style="width: 250px;"  class="button" > Leveringstijd veranderen </button>
-        <br>
->>>>>>> a72cf39aded9a4888187b7547f8b60767366339a
         <br>
         <br>
         <button onclick="location.href='./leveringstijdveranderen_doorstuur.php'" type="button" style="width: 250px;"  class="button button1" > Leveringstijd veranderen </button>
