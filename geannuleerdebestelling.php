@@ -13,12 +13,16 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<head style="">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+<link href="datetimepicker/sample in bootstrap v2/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 
 </head>
 <body>
+       <?php include 'navbar_huisarts.php'; ?>
+	<button onclick="location.href='./index.php'" type="button" style="width: 250px; float:right;"  class="button button1" > Loguit </button>
+	<Br>
+	<br>
+	<br>
     
     <div>
     <h1 style="text-align: center;">Uw bestelling is geplaatst</h1>
@@ -26,6 +30,7 @@
         <tr>
         <th>OrderID</th>
         <th>Tijd van bestelling</th>
+        <th></th>
 			</tr>
 		<?php
 	       while( $row = mysqli_fetch_assoc($result) )
@@ -34,8 +39,8 @@
 						<td>".$row["idOrder"]."</td>
 						<td>".$row["huidigedatum"]."</td>
                         <td>
-							<a href='bestellen_stap3.php?verzekeringsnummer=".$row["idOrder"]."'/>
-				            <img src='icons/drop.png' alt='Receptaanmaken'>
+							<a href='geannuleerdebestelling_plaatsen.php?orderid=".$row["idOrder"]."'/>
+				            <img src='icons/drop.png' alt='Recept plaatsen'>
 							</a>
                         </td>
                         

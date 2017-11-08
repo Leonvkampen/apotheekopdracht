@@ -20,7 +20,7 @@ $aantalmedicijnen = "SELECT voorraad FROM `medicijn` WHERE naam = '".$_POST["med
    		
 		}
 
-		//var_dump($_POST); 
+		
 
 
 
@@ -83,7 +83,7 @@ $aantalmedicijnen = "SELECT voorraad FROM `medicijn` WHERE naam = '".$_POST["med
             
             $orderIdSecond = mysqli_insert_id($connection);
                 insert_orderline($orderIdSecond, $connection, true, $date, $time);
-               //var_dump($orderIdSecond, $connection, true); 
+               
             }
             
             
@@ -107,7 +107,7 @@ $aantalmedicijnen = "SELECT voorraad FROM `medicijn` WHERE naam = '".$_POST["med
 					$recordmedicijnid = mysqli_fetch_all($resultmedicijnid, MYSQLI_ASSOC);
                     
 					
-					//var_dump($recordmedicijnid[0]['voorraad']);
+					
                     
                     if  ($_POST[$key] == "Vul hier uw medicijn in")
                     {
@@ -115,9 +115,9 @@ $aantalmedicijnen = "SELECT voorraad FROM `medicijn` WHERE naam = '".$_POST["med
                         
                     }else if ($second == false )
                     {
-                        var_dump($second);
+                     
                         
-                         var_dump ($recordmedicijnid[0]['voorraad']);
+                       
                       
 
                     $huidigevoorraad = $recordmedicijnid[0]['voorraad'];
@@ -127,7 +127,7 @@ $aantalmedicijnen = "SELECT voorraad FROM `medicijn` WHERE naam = '".$_POST["med
                    
 				
                     if(  $nieuwevooraad < '5' ){
-							   echo "Dit medicijn is niet in voorraadrd";
+							   echo "1 van uw opgegeven medicijnen is niet op vooraad deze order is nu geannuleerd u kunt deze activeren vanuit de homepagina";
                         
                       
                         insert_order($connection, true, $date, $time);
@@ -208,8 +208,8 @@ $aantalmedicijnen = "SELECT voorraad FROM `medicijn` WHERE naam = '".$_POST["med
        <h1 style="text-align: center;">Uw bestelling is geplaatst </h1>
   
 <?php
-    exit;
- header("refresh:2; url=huisartshome.php");
+   
+ header("refresh:5; url=huisartshome.php");
 
 
 ?>
