@@ -35,7 +35,7 @@ $aantalmedicijnen = "SELECT voorraad FROM `medicijn` WHERE naam = '".$_POST["med
 								
 								$date = date('Y-m-d', strtotime($datetime));
 								$time = date('G:i:00', strtotime($datetime));
-
+		$nextday = date('Y-m-d',strtotime($date . "+1 days"));
 
 	//------------------------------------------------MED POSTS--------------------------------------------------------------------
 

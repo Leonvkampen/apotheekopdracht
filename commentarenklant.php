@@ -14,16 +14,16 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<link   rel="stylesheet" type="text/css" href="style.css">
+<link  rel="stylesheet" type="text/css" href="style.css">
 <link href="datetimepicker/sample in bootstrap v2/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 
 </head>
 <body>
 
-    
+    <?php include 'navbar_huisarts.php';?>
        <h1 style="text-align: center;">Commentaren Klant</h1>
   
-<table width="300" border="1" cellpadding="1" cellspacing="1" align="center"  >
+<table border="2px solid black" width="300" border="1" cellpadding="1" cellspacing="1" align="center" class="">
 <tr>
 				<th>orderID</th>
 				<th>Verzekeringsnummer</th>
