@@ -30,7 +30,11 @@
         <button onclick="location.href='./bestellen_stap1.php'" type="button" style="width: 250px;"  class="button button1" > Bestelling plaatsen </button>
 		<br>
         <br>
-        <button onclick="location.href='./commentarenklant.php'" type="button" style="width: 250px;"  class="button button1" > commentaren </button>
+        <button onclick="location.href='./commentarenklant.php'" type="button" style="width: 250px;"  class="button button1" > commentaren         </button>
+        <br>
+        <br>
+        <button onclick="location.href='./geannuleerdebestelling.php'" type="button" style="width: 250px;"  class="button button1" >geannuleerde bestellingen</button>
+        
 	</div>
 </body>
 <br><br><br>
