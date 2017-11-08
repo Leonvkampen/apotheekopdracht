@@ -37,7 +37,6 @@ $aantalmedicijnen = "SELECT voorraad FROM `medicijn` WHERE naam = '".$_POST["med
 								$time = date('G:i:00', strtotime($datetime));
 
 
-	//------------------------------------------------MED POSTS--------------------------------------------------------------------
 
         function insert_order($connection, $second = false, $date, $time) {
         
