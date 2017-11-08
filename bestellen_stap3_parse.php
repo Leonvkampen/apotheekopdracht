@@ -120,7 +120,7 @@ $aantalmedicijnen = "SELECT voorraad FROM `medicijn` WHERE naam = '".$_POST["med
                     {
                         
                         
-                    }if ($recordmedicijnid[0]['voorraad'] < '5' ||  $second == 'false')
+                    }if ($second == false || $recordmedicijnid[0]['voorraad'] < '5' )
                     {
                         
                     echo "Dit medicijn is niet in voorraadrd";
@@ -129,7 +129,7 @@ $aantalmedicijnen = "SELECT voorraad FROM `medicijn` WHERE naam = '".$_POST["med
                         
                        insert_order($connection, true, $date, $time);
                         
-                    } elseif ($second = 'true') {
+                    } elseif ($second == true) {
                         echo "Dtestsetsetestestests";
                     }
                     else{

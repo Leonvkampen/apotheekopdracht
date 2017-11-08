@@ -6,7 +6,7 @@
     if ( empty($_POST["naam"]) )
 	{ 
 		echo "U heeft geen patient ingevult probeer het nogmaals";
-		header("refresh:2; url=index.php?content=bestellen_stap1.php");
+		header("refresh:2; bestellen_stap1.php");
 	}
 	else
 	{
