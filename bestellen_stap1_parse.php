@@ -31,7 +31,7 @@
 
 ?>
     
-       <h1 style="text-align: center;">Bestelling plaatsen</h1>
+       <h1 color="black" style="text-align: center;">Bestelling plaatsen</h1>
   
 
 <table width="300" border="1" cellpadding="1" cellspacing="1" align="center">

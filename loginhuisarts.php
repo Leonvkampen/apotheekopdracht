@@ -9,7 +9,7 @@
 <body>
 	<?php include 'navbar.php'; ?>
     <h1 style="text-align: center;">Inloggen huisarts</h1>
-<div class="form" style="margin-left:43.5%; text-align: center" >
+<div class="form" style="margin-left:30%; text-align: center" >
     <div>
 
     <form id="login" class="table" method="post" action="loginhuisarts_parse.php"  ;>
@@ -17,11 +17,11 @@
         <tr>
       <br>
             <td>Email<br><hr></td></tr>
-              <tr><td><input type="email" name="email"></td></tr>
+              <tr><td><input style="width:80%;" type="email" name="email"></td></tr>
 
         <tr>
             <td>Wachtwoord<br><hr></td></tr>
-              <tr><td><input type="password" name="wachtwoord"></td>
+              <tr><td><input style="width:80%;" type="password" name="wachtwoord"></td>
         </tr>
         <tr>
             <td>

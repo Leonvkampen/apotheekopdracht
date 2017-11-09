@@ -25,7 +25,7 @@
 	<br>
     
     <div>
-    <h1 style="text-align: center;">Uw bestelling is geplaatst</h1>
+    <h1 style="text-align: center;">Geanuleerde bestellingen</h1>
         <table width="300" border="1" cellpadding="1" cellspacing="1" align="center"  >
         <tr>
         <th>OrderID</th>

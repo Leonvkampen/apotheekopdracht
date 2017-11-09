@@ -26,8 +26,6 @@ echo $date;
 <html lang="en">
 <head style="">
 <link type="text/css" rel="stylesheet" href="style.css">
-<link href="datetimepicker/sample in bootstrap v2/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
 
 

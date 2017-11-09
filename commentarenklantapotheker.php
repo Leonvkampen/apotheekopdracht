@@ -21,7 +21,7 @@
 <body>
 	<?php include 'navbar_apotheker.php'; ?>
     
-       <h1 style="text-align: center;">Leveringen</h1>
+       <h1 color="black" style="text-align: center;">Leveringen</h1>
   
 <table border="2px solid black" width="300" border="1" cellpadding="1" cellspacing="1" align="center"  >
 <tr>

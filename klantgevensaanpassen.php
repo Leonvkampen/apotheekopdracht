@@ -19,7 +19,7 @@
 </head>
 <body>
   
-    <h1 style="text-align: center;">Accountgegevens aanpassen</h1>
+    <h1 style="text-align: center; color:black;">Accountgegevens aanpassen</h1>
 <div>
 <h3 style="text-align: center;">Voer alles in. Als u iets niet wilt wijzigen moet u uw huidige gegevens invoeren.</h3>
 <form class="table" method="post" style="margin-left: 22%;" action="klantgevensaanpassen_wijzigen.php">

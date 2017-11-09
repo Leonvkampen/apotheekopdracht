@@ -50,7 +50,7 @@
 	<button onclick="location.href='./index.php'" type="button" style="width: 250px; float:right;"  class="button button1" > Loguit </button>
     
     <div>
-    <h1 style="text-align: center;">Geannuleerde bestelling plaatsen</h1>
+    <h1 style="text-align: center;">Geannuleerde bestelling tijd veranderen</h1>
     </div>
 
     </div>
@@ -117,7 +117,7 @@
         
 	
 		<br><br><br>
-		<button type="submit" class="btn btn-danger" name="Bestellen" id="Bestellen" onClick="geannuleerdebestelling_plaatsen_parse.php">Doorsturen</button>
+		<button type="submit" class="button button1" name="Bestellen" id="Bestellen" onClick="geannuleerdebestelling_plaatsen_parse.php">Doorsturen</button>
       </form>
 	  </div>
   </div>

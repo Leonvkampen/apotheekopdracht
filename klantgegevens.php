@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="datetimepicker/sample in bootstrap v2/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+
     <link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
@@ -12,7 +12,7 @@
     include 'db_connect.php';
 ?>
   
-    <h1 style="text-align: center;">Gegevens</h1>
+    <h1 color="black" style="text-align: center;">Gegevens</h1>
 <div class="form" style="margin-left: 25%; height:50%;">
     <form id="klantgegevens" class="table" method="post" style="margin-left: 22%;">
     <table>

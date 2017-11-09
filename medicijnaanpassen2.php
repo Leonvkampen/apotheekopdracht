@@ -21,36 +21,36 @@
 </head>
 <body>
 	<?php  include 'navbar_apotheker.php'; ?>
-    <h1 style="text-align: center;">medicijn aanpassen</h1>
+    <h1 color="black" style="text-align: center;">medicijn aanpassen</h1>
 <div>
-<h3 style="text-align: center;">Voer alles in. Als u iets niet wilt wijzigen moet u uw huidige gegevens invoeren.</h3>
+<h3  style="text-align: center;">Voer alles in. Als u iets niet wilt wijzigen moet u uw huidige gegevens invoeren.</h3>
 <form class="table" method="post" style="margin-left: 22%;" action="medicijnaanpassen_parse.php">
-    <table style="margin-left: 22%;">
+    <table style="margin-left: 10%;">
             <tr>
 				<input style="width: 100%" type="hidden" class="form-control" name="medicijnid" id="medicijnid" value="<?= $record["idMedicijn"] ?>"/>
-                <td>Medicijn naam:			
-                        <input style="width: 100%" type="text" class="form-control" name="naam" id="naam"  placeholder="Vul een naam in" value="<?= $record["naam"] ?>"/>
+                <td>Medicijn naam:<br>			
+                        <input style="width: 80%" type="text" class="form-control" name="naam" id="naam"  placeholder="Vul een naam in" value="<?= $record["naam"] ?>"/>
                 </td>
             </tr>
         
           <tr>
-            <td>Medicatie Beschrijving:				
-						<input style="width: 100%" type="text" class="form-control" name="beschrijving" id="beschrijving"  placeholder="Vul uw beschrijving in" value="<?= $record["beschrijving"] ?>"/>
+            <td>Medicatie Beschrijving:<br>					
+						<input style="width: 80%" type="text" class="form-control" name="beschrijving" id="beschrijving"  placeholder="Vul uw beschrijving in" value="<?= $record["beschrijving"] ?>"/>
 			</td></tr>
         </tr>
           <tr>
-            <td>Medicatie Voorraad:				
-						<input style="width: 100%" type="text" class="form-control" name="voorraad" id="voorraad"  placeholder="Vul uw voorraad in" value="<?= $record["voorraad"] ?>"/>
+            <td>Medicatie Voorraad:	<br>				
+						<input style="width: 80%" type="text" class="form-control" name="voorraad" id="voorraad"  placeholder="Vul uw voorraad in" value="<?= $record["voorraad"] ?>"/>
 			</td></tr>
         </tr>
           <tr>
-            <td>Medicijn Maximale Aantal: <div>				
-						<input style="width: 100%" type="text" class="form-control" name="maximalevoorraad" id="maximalevoorraad"  placeholder="Vul uw maximale voorraad in" value="<?= $record["maximalevoorraad"] ?>" />
+            <td>Medicijn Maximale Aantal: <br>					
+						<input style="width: 80%" type="text" class="form-control" name="maximalevoorraad" id="maximalevoorraad"  placeholder="Vul uw maximale voorraad in" value="<?= $record["maximalevoorraad"] ?>" />
 			</td></tr>
         <tr>
-            <td>ophalen <div>	
+            <td>ophalen 	<br>	
                  <input style="width: 100%" type="hidden" class="form-control" name="ophalen" id="ophalen"  placeholder="ophalen" value="nee" />
-						<input style="width: 100%" type="checkbox" class="form-control" name="ophalen" id="ophalen"  placeholder="ophalen" value="ja" />
+						<input style="width: 80%" type="checkbox" class="form-control" name="ophalen" id="ophalen"  placeholder="ophalen" value="ja" />
                
 			</td></tr>
         <tr>
