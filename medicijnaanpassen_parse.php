@@ -31,7 +31,7 @@
 	if ( $result )
 	{
 		echo "<font color='red' font size='50px'>Uw gegevens zijn succesvol gewijzigt. U wordt doorgestuurd naar uw accountpagina.</font>";
-		header("refresh:2; url=apothekerhome.php");
+		header("refresh:2; url=medicatie.php");
 	}
 	
 	else

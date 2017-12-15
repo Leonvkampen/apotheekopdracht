@@ -28,7 +28,7 @@ $resultorder = mysqli_query($connection, $deleteorder);
 var_dump($deleteorder);
 var_dump($deleteorderregel);
 
-//header('Location: leveringen.php');
+header('Location: leveringen.php');
 ?>
 
 
