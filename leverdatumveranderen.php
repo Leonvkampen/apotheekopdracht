@@ -15,7 +15,7 @@
 				  FROM		`order`";
 
     $resultleverdatum = mysqli_query($connection, $queryleverdatum);
-	var_dump($queryleverdatum);
+	
 
 	
 	$querypatientnaam = "SELECT	*
@@ -23,7 +23,7 @@
 				  WHERE		`naam`			= '".$patientnaam."';";
 
     $resultpatientnaam = mysqli_query($connection, $querypatientnaam);
-var_dump($querypatientnaam);
+
 
 
 
@@ -33,7 +33,7 @@ var_dump($querypatientnaam);
 					 
 	$resultorderid = mysqli_query($connection, $queryorderid);
 	
-	var_dump($queryorderid);
+	
 	
 	$timezone = date_default_timezone_set('Europe/Amsterdam');
 $date = date('H:i:s');

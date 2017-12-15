@@ -16,7 +16,7 @@
 	
 	date_default_timezone_set("Europe/Amsterdam");
     $now = date("G:i");
-    //var_dump($now);
+    
     $begin = ('00:00');
     $end = ('13:30');
 	
@@ -64,7 +64,7 @@
             $option = "";
             while( $row = mysqli_fetch_assoc($result) )
 			{
-                //var_dump($row);
+               
 				$option .= "<option value='".$row['idMedicijn']."'>".$row["naam"]."</option>";
 			} //exit;
 			

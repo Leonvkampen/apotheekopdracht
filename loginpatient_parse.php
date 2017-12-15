@@ -3,7 +3,7 @@
 
     $_SESSION['post-data'] = $_POST;
 
-    var_dump($_POST);
+   
 	include("db_connect.php");
 
     if ( empty($_POST["Verzekeringsnummer"]) || empty($_POST["email"]) || empty($_POST["Geboorteplaats"]) )
@@ -26,7 +26,7 @@
 		{
 			// Meldt de gebruiker dat hij is ingelogd redirect naar homepage developer
 			$record_user = mysqli_fetch_assoc($result_patient);
-			var_dump($record_user);
+			
 			$_SESSION["Email"] = $record_user["Email"];
 			$_SESSION["Verzekeringsnummer"] = $record_user["Verzekeringsnummer"];
 			$_SESSION["geboorteplaats"] = $record_user["geboorteplaats"];

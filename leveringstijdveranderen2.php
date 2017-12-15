@@ -2,18 +2,18 @@
     session_start();
 	
 
-	//var_dump($_SESSION); 
+	 
 	include("db_connect.php");
 	$query = "SELECT * FROM `order`";
 	
 	$result = mysqli_query($connection, $query);
-	//var_dump($result);
+	
 		
-	//var_dump($_GET["levertijd"]);
+	
 	
 	date_default_timezone_set("Europe/Amsterdam");
     $now = date("G:i");
-    //var_dump($now);
+   
     $begin = ('00:00');
     $end = ('13:30');
 ?>

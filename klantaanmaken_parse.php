@@ -1,7 +1,7 @@
 <?php
     session_start();
 	
-	var_dump($_POST);
+	
 	include("db_connect.php");
 	
 	

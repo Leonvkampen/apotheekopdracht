@@ -12,7 +12,7 @@ $resultmedicijn = mysqli_query($connection, $deletemedicijn);
 
 
 
-var_dump($deletemedicijn);
+
 
 
 header('Location: medicatie.php');

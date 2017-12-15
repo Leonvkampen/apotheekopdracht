@@ -3,7 +3,7 @@
 
     $_SESSION['post-data'] = $_POST;
 
-    var_dump($_POST);
+    
 	include("db_connect.php");
 
     if ( empty($_POST["email"]) || empty($_POST["wachtwoord"]) )
@@ -32,11 +32,11 @@
 		{
 	
 			$record_user = mysqli_fetch_assoc($result_patient);
-			var_dump($record_user);
+			
 			$_SESSION["Email"] = $record_user["Email"];
             
             $record_wachtwoord = mysqli_fetch_assoc($result_wachtwoord);
-			var_dump($record_wachtwoord);
+			
 			$_SESSION["email"] = $record_wachtwoord["email"];
 			$_SESSION["wachtwoord"] = $record_wachtwoord["wachtwoord"];
             

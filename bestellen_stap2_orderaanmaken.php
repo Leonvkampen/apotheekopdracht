@@ -3,11 +3,11 @@ session_start();
 
 include("db_connect.php");
  
-var_dump($_SESSION);
+
         $verzekeringsnummer = $_GET['verzekeringsnummer'];
 		$_SESSION["verzekeringsnummer"] = $verzekeringsnummer;
 
-//var_dump ($_SESSION); exit;
+
 
 ?>
 
@@ -51,9 +51,6 @@ var_dump($_SESSION);
 
     
 ?>
-<?php var_dump($recordsorderid);  
 
-
-?>
 <br><br><br>
 </html>

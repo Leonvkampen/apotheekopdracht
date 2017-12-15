@@ -14,7 +14,7 @@
 	
 	date_default_timezone_set("Europe/Amsterdam");
     $now = date("G:i");
-    //var_dump($now);
+    
     $begin = ('00:00');
     $end = ('13:30');
 	

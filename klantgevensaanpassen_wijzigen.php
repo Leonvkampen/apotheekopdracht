@@ -2,7 +2,7 @@
     session_start();
 	
 
-	//var_dump($_POST);
+	
 	include("db_connect.php");
 
 	$select_user_email = ("SELECT `Email` FROM `patient` WHERE `Email` = '{$_SESSION["Email"]}'"); 
@@ -40,7 +40,6 @@
 								   `postcode` = '".$_POST['postcode']."'
 			  WHERE                `Email` = '".$_SESSION['Email']."'"; 
 
-    //var_dump($query);
 
 	$result = mysqli_query($connection, $query);
 

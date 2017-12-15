@@ -9,7 +9,7 @@ $tomorrow = date('Y-m-d',strtotime($date1 . "+1 days"));
 
 echo $tomorrow;
 
-var_dump($tomorrow);
+
 
 
 

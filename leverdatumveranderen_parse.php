@@ -1,7 +1,7 @@
 <?php
     session_start();
 	
-    var_dump($_POST["leverdatum"]);
+    
 	
 	include("db_connect.php");
 	
@@ -12,7 +12,7 @@
 
 
 	$result = mysqli_query($connection, $query);
-	var_dump($query);
+	
 	
 	
 

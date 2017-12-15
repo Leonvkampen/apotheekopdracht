@@ -1,7 +1,7 @@
 <?php
     session_start();
 	
-	//var_dump($_POST);
+	
 	include("db_connect.php");
 	
 	
@@ -30,7 +30,7 @@
                                    '".$_POST["maximaleaantal"]."',
 								   '".$_POST["ophalen"]."')";
 
-	//var_Dump($query);
+
 	echo "Het medicijn is aangemaakt!";
 	$result = mysqli_query($connection, $query);
 	header("refresh:2; url=medicatie.php");

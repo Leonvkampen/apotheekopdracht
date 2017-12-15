@@ -1,9 +1,7 @@
 <?php
     session_start();
-	//var_dump ($_POST);
+	
     
-
-	//var_dump($_POST);
 	include("db_connect.php");
 
 	if(!isset($_POST["naam"]) || trim($_POST["naam"]) == '' OR 
@@ -24,7 +22,7 @@
 								   `ophalen` = '".$_POST['ophalen']."'
 			  WHERE				   `idMedicijn` = '".$_POST['medicijnid']."'"; 
 
-    //var_dump($query);
+    
 
 	$result = mysqli_query($connection, $query);
 
@@ -39,7 +37,7 @@
 		echo "<font color='red' font size='100px'>Er is iets fout gegaan.</font>";
 		header("url=medicijnaanpassen2.php");
 	}
-//var_dump ($query);
+
 ?>
 <html>
 <link rel="stylesheet" type="text/css" href="style.css">

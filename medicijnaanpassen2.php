@@ -8,7 +8,7 @@
 
     $record = mysqli_fetch_assoc($result);
 
-//var_dump($record)
+
 ?>
 
 
